@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRental"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800">
     <Grid>
-        
+        <TextBox x:Name="MovieSearchBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.873,0.987" Margin="54,10,0,0"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="201,13,0,0" Click="SearchButton_Click"/>
+        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="342" VerticalAlignment="Top" Width="365" Margin="54,70,0,0" SelectionChanged="MovieListBox_SelectionChanged"/>
+        <Button x:Name="AddButton" Content="Add" RenderTransformOrigin="2.074,4.943" Margin="556,439,42,39" Click="AddButton_Click"/>
+        <Image x:Name="MoviePoster" HorizontalAlignment="Left" Height="284" Margin="434,70,0,0" VerticalAlignment="Top" Width="185"/>
+
+
     </Grid>
 </Window>
