@@ -53,15 +53,27 @@ namespace MovieRental
         // Update the poster on selection changed
         private void MovieListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SearchMovie current = (SearchMovie) MovieListBox.SelectedItem;
+            try
+            {
+                SearchMovie current = (SearchMovie)MovieListBox.SelectedItem;
 
-            Uri apiUri = new Uri("http://image.tmdb.org/t/p/w185//");
-            string posterPath = current.PosterPath;
+                Uri apiUri = new Uri("http://image.tmdb.org/t/p/w342//");
+                string posterPath = current.PosterPath;
 
-            System.UriBuilder uriBuilder = new System.UriBuilder(apiUri);
-            uriBuilder.Path += posterPath;
+                System.UriBuilder uriBuilder = new System.UriBuilder(apiUri);
+                uriBuilder.Path += posterPath;
 
-            MoviePoster.Source = new BitmapImage(uriBuilder.Uri);
+                MoviePoster.Source = new BitmapImage(uriBuilder.Uri);
+
+                MovieTitle.Text = current.Title;
+                MovieOverview.Text = current.Overview;
+               
+            }
+            catch (NullReferenceException)
+            {
+
+            }
+
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -105,8 +117,15 @@ namespace MovieRental
                 Rating = (int) Math.Round (current.VoteAverage)
             };
 
-            context.Movies.Add(movie);
-            context.SaveChanges();
+            try
+            {
+                context.Movies.Add(movie);
+                context.SaveChanges();
+            } 
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                MessageBox.Show("This movie is already in the database");
+            }
         }
     }
 }
