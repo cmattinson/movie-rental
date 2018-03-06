@@ -9,7 +9,7 @@
     <Grid>
         <TextBox x:Name="MovieSearchBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Search for a movie" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.873,0.987" Margin="54,10,0,0"/>
         <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="201,13,0,0" Click="SearchButton_Click"/>
-        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="317" Margin="929,13,0,0" SelectionChanged="MovieListBox_SelectionChanged"/>
+        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="317" Margin="929,13,0,0" SelectionChanged="MovieListBox_SelectionChanged" FontFamily="Source Sans Pro Semibold" FontSize="14"/>
         <Button x:Name="AddButton" Content="Add" RenderTransformOrigin="2.074,4.943" Margin="1064,569,26,43" Click="AddButton_Click"/>
         <Image x:Name="MoviePoster" HorizontalAlignment="Left" Height="426" Margin="26,70,0,0" VerticalAlignment="Top" Width="299"/>
         <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="330,168,0,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Source Sans Pro Semibold" FontSize="24"/>

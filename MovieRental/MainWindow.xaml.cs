@@ -31,6 +31,8 @@ namespace MovieRental
         {
             InitializeComponent();
 
+            MovieListBox.SelectedIndex = 0;
+
             // Initially populate the list with the most popular movies at the time
             SearchContainer<SearchMovie> initial = client.GetMoviePopularListAsync("English").Result;
 
@@ -63,6 +65,7 @@ namespace MovieRental
                 System.UriBuilder uriBuilder = new System.UriBuilder(apiUri);
                 uriBuilder.Path += posterPath;
 
+                // TODO: Check if this is null
                 MoviePoster.Source = new BitmapImage(uriBuilder.Uri);
 
                 MovieTitle.Text = current.Title;
@@ -82,6 +85,7 @@ namespace MovieRental
 
             SearchMovie current = (SearchMovie)MovieListBox.SelectedItem;
 
+            // TODO: Move this
             var genreDict = new Dictionary<int, string>();
 
             genreDict.Add(28, "Action");
