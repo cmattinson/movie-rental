@@ -17,7 +17,7 @@ using TMDbLib.Client;
 using TMDbLib.Objects.Collections;
 using TMDbLib.Objects.General;
 using TMDbLib.Objects.Search;
-using APIMovie = TMDbLib.Objects.Movies.Movie;
+using APIMovie = TMDbLib.Objects.Movies.Movie; // Alias as we already have an object called Movie
 
 namespace MovieRental
 {
@@ -26,7 +26,10 @@ namespace MovieRental
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        // Connect to api using api key
         TMDbClient client = new TMDbClient("ce183dd9fdee061774d69813580b16ea");
+
         public MainWindow()
         {
             InitializeComponent();
@@ -115,7 +118,7 @@ namespace MovieRental
             {
                 MovieID = current.Id,
                 Title = current.Title,
-                Genre = genreDict[current.GenreIds[0]], // First available genre
+                Genre = genreDict[current.GenreIds[0]], // First available genre for the movie
                 DistributionFee = 20000,
                 NumberOfCopies = 10,
                 Rating = (int) Math.Round (current.VoteAverage)
