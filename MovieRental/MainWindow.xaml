@@ -5,22 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRental"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="800" Width="1500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        <TextBox x:Name="MovieSearchBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Search for a movie" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.873,0.987" Margin="54,10,0,0"/>
-        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="201,13,0,0" Click="SearchButton_Click"/>
-        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="317" Margin="929,13,0,0" SelectionChanged="MovieListBox_SelectionChanged" FontFamily="Source Sans Pro Semibold" FontSize="14"/>
-        <Button x:Name="AddButton" Content="Add" RenderTransformOrigin="2.074,4.943" Margin="1064,569,26,43" Click="AddButton_Click"/>
-        <Image x:Name="MoviePoster" HorizontalAlignment="Left" Height="426" Margin="26,70,0,0" VerticalAlignment="Top" Width="299"/>
-        <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="330,168,0,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Source Sans Pro Semibold" FontSize="24"/>
-        <WrapPanel HorizontalAlignment="Left" Height="398" Margin="330,214,0,0" VerticalAlignment="Top" Width="574">
-            <TextBlock x:Name="MovieOverview" TextWrapping="Wrap" Text="TextBlock" FontSize="20"/>
-        </WrapPanel>
-        <WrapPanel HorizontalAlignment="Left" Height="100" Margin="330,63,0,0" VerticalAlignment="Top" Width="574">
-            <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Source Sans Pro Black" FontSize="36"/>
-        </WrapPanel>
-        <WrapPanel HorizontalAlignment="Left" Height="100" Margin="238,512,0,0" VerticalAlignment="Top" Width="100"/>
-
-
+        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="1282" Margin="200,135,0,0" NavigationUIVisibility="Hidden" Background="#FF232323"/>
+        <StackPanel x:Name="ButtonStack" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="200" Background="#FF232323" Margin="0,135,0,0">
+            <Button x:Name="AddMovies" Content="Add Movies" Click="AddMovies_Click" Height="70" Background="#FF232323" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
+        </StackPanel>
+        <ToolBarPanel HorizontalAlignment="Left" Height="135" Margin="195,0,0,0" VerticalAlignment="Top" Width="1287" Background="#FF232323"/>
     </Grid>
 </Window>

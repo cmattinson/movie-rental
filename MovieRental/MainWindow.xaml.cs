@@ -27,184 +27,22 @@ namespace MovieRental
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-
-        // Connect to api using api key
-        TMDbClient client = new TMDbClient("ce183dd9fdee061774d69813580b16ea");
-
+    { 
         public MainWindow()
         {
             InitializeComponent();
-
-            MovieListBox.SelectedIndex = 0;
-
-            // Initially populate the list with the most popular movies at the time
-            SearchContainer<SearchMovie> initial = client.GetMoviePopularListAsync("English").Result;
-
-            List<SearchMovie> popular = initial.Results.ToList();
-            MovieListBox.DisplayMemberPath = "Title";
-
-            MovieListBox.ItemsSource = popular;
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SearchContainer<SearchMovie> results = client.SearchMovieAsync(MovieSearchBox.Text).Result;
-
-            List<SearchMovie> movies = results.Results.ToList();
-            MovieListBox.DisplayMemberPath = "Title";
-
-            MovieListBox.ItemsSource = movies;
+            Frame.NavigationService.Navigate(new AddMovie());
         }
 
-        // Update the poster on selection changed
-        private void MovieListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AddMovies_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                SearchMovie current = (SearchMovie) MovieListBox.SelectedItem;
-
-                Uri apiUri = new Uri("http://image.tmdb.org/t/p/w342//");
-                string posterPath = current.PosterPath;
-
-                System.UriBuilder uriBuilder = new System.UriBuilder(apiUri);
-                uriBuilder.Path += posterPath;
-
-                // TODO: Check if this is null
-                MoviePoster.Source = new BitmapImage(uriBuilder.Uri);
-
-                MovieTitle.Text = current.Title;
-                MovieOverview.Text = current.Overview;
-            }
-            catch (NullReferenceException)
-            {
-
-            }
-
-        }
-
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            var context = new MovieRentalEntities();
-
-            SearchMovie current = (SearchMovie)MovieListBox.SelectedItem;
-
-            Credits credits = client.GetMovieCreditsAsync(current.Id).Result;
-
-            foreach (Cast cast in credits.Cast)
-            {
-
-                // Top 5 actors
-                if(cast.Order < 5)
-                { 
-                    Person person = client.GetPersonAsync(cast.Id).Result;
-
-                    int id = person.Id;
-                    string firstName, lastName;
-                    string gender = person.Gender.ToString();
-                    string sex = gender[0].ToString();
-
-                    var today = DateTime.Today;
-
-                    int age = today.Year - person.Birthday.Value.Year;
-
-                    string fullName = person.Name;
-                    var names = fullName.Split(' ');
-
-                    if (names.Length > 2)
-                    {
-                        firstName = names[0]; lastName = names[names.Length - 1];
-                    }
-                    else
-                    {
-                        firstName = names[0]; lastName = names[1];
-                    }
-
-                    Actor actor = new Actor()
-                    {
-                        ActorID = id,
-                        FirstName = firstName,
-                        LastName = lastName,
-                        Sex = sex,
-                        Age = age,
-                        Rating = 1
-                    };
-
-                    try
-                    {
-                        context.Actors.Add(actor);
-                        context.SaveChanges();
-                    }
-                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
-                    {
-                        MessageBox.Show("This actor is already in the database");
-                    }
-
-                    Credit credit = new Credit()
-                    {
-                        MovieID = current.Id,
-                        ActorID = id
-                    };
-
-                    try
-                    {
-                        context.Credits.Add(credit);
-                        context.SaveChanges();
-                    }
-                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
-                    {
-                        MessageBox.Show("This credit is already in the database");
-                    }
-                }
-            }
-
-            // TODO: Move this
-            var genreDict = new Dictionary<int, string>();
-
-            genreDict.Add(28, "Action");
-            genreDict.Add(12, "Adventure");
-            genreDict.Add(16, "Animation");
-            genreDict.Add(35, "Comedy");
-            genreDict.Add(80, "Crime");
-            genreDict.Add(99, "Documentary");
-            genreDict.Add(18, "Drama");
-            genreDict.Add(10751, "Family");
-            genreDict.Add(14, "Fantasy");
-            genreDict.Add(36, "History");
-            genreDict.Add(27, "Horror");
-            genreDict.Add(10402, "Music");
-            genreDict.Add(9648, "Mystery");
-            genreDict.Add(10749, "Romance");
-            genreDict.Add(878, "Science Fiction");
-            genreDict.Add(10770, "TV Movie");
-            genreDict.Add(53, "Thriller");
-            genreDict.Add(10752, "War");
-            genreDict.Add(37, "Western");
-
-            var image = client.GetMovieImagesAsync(current.Id);
-            Console.WriteLine(image);
-
-            Movie movie = new Movie()
-            {
-                MovieID = current.Id,
-                Title = current.Title,
-                Genre = genreDict[current.GenreIds[0]], // First available genre for the movie
-                DistributionFee = 20000,
-                NumberOfCopies = 10,
-                Rating = (int) Math.Round (current.VoteAverage)
-            };
-
-            try
-            {
-                context.Movies.Add(movie);
-                context.SaveChanges();
-
-                MessageBox.Show("Movie added successfully!");
-            } 
-            catch (System.Data.Entity.Infrastructure.DbUpdateException)
-            {
-                MessageBox.Show("This movie is already in the database");
-            }
+            Frame.NavigationService.Navigate(new AddMovie());
         }
     }
 }
+
+           

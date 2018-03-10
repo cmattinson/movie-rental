@@ -72,6 +72,9 @@
     <Compile Include="Actor.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AddMovie.xaml.cs">
+      <DependentUpon>AddMovie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Credit.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
     <Compile Include="Queue.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Page Include="AddMovie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
