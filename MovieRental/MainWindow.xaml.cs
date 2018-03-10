@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using TMDbLib.Client;
 using TMDbLib.Objects.Collections;
 using TMDbLib.Objects.General;
+using TMDbLib.Objects.Movies;
+using TMDbLib.Objects.People;
 using TMDbLib.Objects.Search;
 using APIMovie = TMDbLib.Objects.Movies.Movie; // Alias as we already have an object called Movie
 
@@ -60,7 +62,7 @@ namespace MovieRental
         {
             try
             {
-                SearchMovie current = (SearchMovie)MovieListBox.SelectedItem;
+                SearchMovie current = (SearchMovie) MovieListBox.SelectedItem;
 
                 Uri apiUri = new Uri("http://image.tmdb.org/t/p/w342//");
                 string posterPath = current.PosterPath;
@@ -73,7 +75,6 @@ namespace MovieRental
 
                 MovieTitle.Text = current.Title;
                 MovieOverview.Text = current.Overview;
-               
             }
             catch (NullReferenceException)
             {
@@ -87,6 +88,75 @@ namespace MovieRental
             var context = new MovieRentalEntities();
 
             SearchMovie current = (SearchMovie)MovieListBox.SelectedItem;
+
+            Credits credits = client.GetMovieCreditsAsync(current.Id).Result;
+
+            foreach (Cast cast in credits.Cast)
+            {
+
+                // Top 5 actors
+                if(cast.Order < 5)
+                { 
+                    Person person = client.GetPersonAsync(cast.Id).Result;
+
+                    int id = person.Id;
+                    string firstName, lastName;
+                    string gender = person.Gender.ToString();
+                    string sex = gender[0].ToString();
+
+                    var today = DateTime.Today;
+
+                    int age = today.Year - person.Birthday.Value.Year;
+
+                    string fullName = person.Name;
+                    var names = fullName.Split(' ');
+
+                    if (names.Length > 2)
+                    {
+                        firstName = names[0]; lastName = names[names.Length - 1];
+                    }
+                    else
+                    {
+                        firstName = names[0]; lastName = names[1];
+                    }
+
+                    Actor actor = new Actor()
+                    {
+                        ActorID = id,
+                        FirstName = firstName,
+                        LastName = lastName,
+                        Sex = sex,
+                        Age = age,
+                        Rating = 1
+                    };
+
+                    try
+                    {
+                        context.Actors.Add(actor);
+                        context.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                    {
+                        MessageBox.Show("This actor is already in the database");
+                    }
+
+                    Credit credit = new Credit()
+                    {
+                        MovieID = current.Id,
+                        ActorID = id
+                    };
+
+                    try
+                    {
+                        context.Credits.Add(credit);
+                        context.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                    {
+                        MessageBox.Show("This credit is already in the database");
+                    }
+                }
+            }
 
             // TODO: Move this
             var genreDict = new Dictionary<int, string>();
@@ -128,6 +198,8 @@ namespace MovieRental
             {
                 context.Movies.Add(movie);
                 context.SaveChanges();
+
+                MessageBox.Show("Movie added successfully!");
             } 
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {

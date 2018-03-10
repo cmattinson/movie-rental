@@ -22,7 +22,7 @@
             <PropertyRef Name="MovieID" />
             <PropertyRef Name="ActorID" />
           </Key>
-          <Property Name="CreditID" Type="int" Nullable="false" />
+          <Property Name="CreditID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MovieID" Type="int" Nullable="false" />
           <Property Name="ActorID" Type="int" Nullable="false" />
         </EntityType>
@@ -192,7 +192,7 @@
             <PropertyRef Name="MovieID" />
             <PropertyRef Name="ActorID" />
           </Key>
-          <Property Name="CreditID" Type="Int32" Nullable="false" />
+          <Property Name="CreditID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MovieID" Type="Int32" Nullable="false" />
           <Property Name="ActorID" Type="Int32" Nullable="false" />
         </EntityType>
