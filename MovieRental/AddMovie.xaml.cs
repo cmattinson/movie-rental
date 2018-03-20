@@ -61,7 +61,7 @@ namespace MovieRental
         {
             try
             {
-                SearchMovie current = (SearchMovie)MovieListBox.SelectedItem;
+                SearchMovie current = (SearchMovie) MovieListBox.SelectedItem;
 
                 Uri apiUri = new Uri("http://image.tmdb.org/t/p/w342//");
                 string posterPath = current.PosterPath;

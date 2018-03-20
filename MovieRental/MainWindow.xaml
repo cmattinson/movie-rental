@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRental"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Manager Utilities" Height="800" Width="1500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
         <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="1282" Margin="200,135,0,0" NavigationUIVisibility="Hidden" Background="#FF232323"/>
         <StackPanel x:Name="ButtonStack" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="200" Background="#FF232323" Margin="0,135,0,0">
             <Button x:Name="AddMovies" Content="Add Movies" Click="AddMovies_Click" Height="70" Background="#FF232323" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
+            <Button x:Name="ManageEmployees" Content="Manage Employees" Click="AddMovies_Click" Height="70" Background="#FF232323" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
+            <Button x:Name="SalesReports" Content="Sales Reports" Click="AddMovies_Click" Height="70" Background="#FF232323" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
+            <Button x:Name="BrowseMovies" Content="Browse Movies" Click="AddMovies_Click" Height="70" Background="#FF232323" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
+            <Button x:Name="Rentals" Content="View Rentals" Click="AddMovies_Click" Height="70" Background="#FF232323" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
+            <Button x:Name="Statistics" Content="Statistics" Click="AddMovies_Click" Height="70" Background="#FF232323" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
         </StackPanel>
-        <ToolBarPanel HorizontalAlignment="Left" Height="135" Margin="195,0,0,0" VerticalAlignment="Top" Width="1287" Background="#FF232323"/>
+        <ToolBarPanel HorizontalAlignment="Left" Height="67" Margin="195,0,0,0" VerticalAlignment="Top" Width="1287" Background="#FF232323"/>
     </Grid>
 </Window>

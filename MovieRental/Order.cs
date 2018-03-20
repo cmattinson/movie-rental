@@ -18,8 +18,8 @@ namespace MovieRental
         public int MovieID { get; set; }
         public int AccountNumber { get; set; }
         public string SIN { get; set; }
-        public System.DateTime RentalDate { get; set; }
-        public System.DateTime ExpectedReturn { get; set; }
+        public Nullable<System.DateTime> RentalDate { get; set; }
+        public Nullable<System.DateTime> ExpectedReturn { get; set; }
         public Nullable<System.DateTime> ActualReturn { get; set; }
     
         public virtual Customer Customer { get; set; }

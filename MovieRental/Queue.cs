@@ -18,8 +18,5 @@ namespace MovieRental
         public int AccountNumber { get; set; }
         public int MovieID { get; set; }
         public System.DateTime DateAdded { get; set; }
-    
-        public virtual Queue Queue1 { get; set; }
-        public virtual Queue Queue2 { get; set; }
     }
 }

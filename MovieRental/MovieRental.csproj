@@ -75,24 +75,38 @@
     <Compile Include="AddMovie.xaml.cs">
       <DependentUpon>AddMovie.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrowseMovies.xaml.cs">
+      <DependentUpon>BrowseMovies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseQueue.xaml.cs">
+      <DependentUpon>BrowseQueue.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Credit.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerWindow.xaml.cs">
+      <DependentUpon>CustomerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Movie.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MovieGridItem.xaml.cs">
+      <DependentUpon>MovieGridItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="MovieModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MovieWindowViewModel.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
@@ -100,6 +114,22 @@
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddMovie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BrowseMovies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BrowseQueue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,6 +145,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MovieGridItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MovieModel.Context.cs">
