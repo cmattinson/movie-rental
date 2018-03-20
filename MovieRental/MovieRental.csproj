@@ -72,13 +72,16 @@
     <Compile Include="Actor.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AddMovie.xaml.cs">
+    <Compile Include="Employees\BrowseOrders.xaml.cs">
+      <DependentUpon>BrowseOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\AddMovie.xaml.cs">
       <DependentUpon>AddMovie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BrowseMovies.xaml.cs">
+    <Compile Include="Customers\BrowseMovies.xaml.cs">
       <DependentUpon>BrowseMovies.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BrowseQueue.xaml.cs">
+    <Compile Include="Customers\BrowseQueue.xaml.cs">
       <DependentUpon>BrowseQueue.xaml</DependentUpon>
     </Compile>
     <Compile Include="Credit.cs">
@@ -87,20 +90,20 @@
     <Compile Include="Customer.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomerWindow.xaml.cs">
+    <Compile Include="Customers\CustomerWindow.xaml.cs">
       <DependentUpon>CustomerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Movie.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MovieGridItem.xaml.cs">
-      <DependentUpon>MovieGridItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="MovieModel.cs">
       <AutoGen>True</AutoGen>
@@ -113,19 +116,27 @@
     <Compile Include="Queue.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
-    <Page Include="AddMovie.xaml">
+    <Page Include="Employees\BrowseOrders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BrowseMovies.xaml">
+    <Page Include="Managers\AddMovie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BrowseQueue.xaml">
+    <Page Include="Customers\BrowseMovies.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomerWindow.xaml">
+    <Page Include="Customers\BrowseQueue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customers\CustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employees\EmployeeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,7 +144,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Managers\ManagerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -141,14 +152,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Managers\ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MovieGridItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MovieModel.Context.cs">

@@ -28,8 +28,44 @@ namespace MovieRental
         {
             string username = UsernameBox.Text;
             string password = PasswordBox.Text;
+            Customer customer;
 
+            if (IsCustomer(username))
+            {
+                using (var context = new MovieRentalEntities())
+                {
+                    customer = context.Customers.Where(u => u.Username == username).FirstOrDefault();
+                }
 
+                var customerScreen = new CustomerWindow(customer);
+                customerScreen.Show();
+                this.Close();
+            }
+        }
+
+        private bool IsCustomer(string username)
+        {
+            using (var context = new MovieRentalEntities())
+            {
+                try
+                {
+                    var query = context.Customers.Where(u => u.Username == UsernameBox.Text).FirstOrDefault();
+                    
+                    if (query.Password == PasswordBox.Text)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect password");
+                        return false;
+                    }
+                }
+                catch (System.NullReferenceException)
+                {
+                    return false;
+                }
+            }
         }
     }
 }

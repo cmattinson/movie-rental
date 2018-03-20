@@ -14,7 +14,6 @@ namespace MovieRental
     
     public partial class Queue
     {
-        public int QueueID { get; set; }
         public int AccountNumber { get; set; }
         public int MovieID { get; set; }
         public System.DateTime DateAdded { get; set; }

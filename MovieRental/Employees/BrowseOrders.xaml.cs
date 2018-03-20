@@ -13,16 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MovieRental
+namespace MovieRental.Employees
 {
     /// <summary>
-    /// Interaction logic for MovieGridItem.xaml
+    /// Interaction logic for BrowseOrders.xaml
     /// </summary>
-    public partial class MovieGridItem : UserControl
+    public partial class BrowseOrders : Page
     {
-        public MovieGridItem()
+        public BrowseOrders()
         {
             InitializeComponent();
+
+            using (var context = new MovieRentalEntities())
+            {
+                var query = context.Orders.Where(order => order.ExpectedReturn == null).ToList();
+
+                OrderGrid.ItemsSource = query;
+            }
         }
     }
 }

@@ -19,9 +19,9 @@ namespace MovieRental
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ManagerWindow : Window
     { 
-        public MainWindow()
+        public ManagerWindow()
         {
             InitializeComponent();
         }

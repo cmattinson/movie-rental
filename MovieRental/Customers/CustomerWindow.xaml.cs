@@ -19,19 +19,22 @@ namespace MovieRental
     /// </summary>
     public partial class CustomerWindow : Window
     {
-        public CustomerWindow()
+        Customer customer;
+
+        public CustomerWindow(Customer customer)
         {
             InitializeComponent();
+            this.customer = customer;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Frame.NavigationService.Navigate(new BrowseMovies());
+            Frame.NavigationService.Navigate(new BrowseMovies(customer));
         }
 
         private void BrowseMovies_Click(object sender, RoutedEventArgs e)
         {
-            Frame.NavigationService.Navigate(new BrowseMovies());
+            Frame.NavigationService.Navigate(new BrowseMovies(customer));
         }
 
         private void BrowseQueue_Click(object sender, RoutedEventArgs e)

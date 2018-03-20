@@ -18,11 +18,9 @@
         </EntityType>
         <EntityType Name="Credits">
           <Key>
-            <PropertyRef Name="CreditID" />
             <PropertyRef Name="MovieID" />
             <PropertyRef Name="ActorID" />
           </Key>
-          <Property Name="CreditID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MovieID" Type="int" Nullable="false" />
           <Property Name="ActorID" Type="int" Nullable="false" />
         </EntityType>
@@ -89,11 +87,9 @@
         </EntityType>
         <EntityType Name="Queue">
           <Key>
-            <PropertyRef Name="QueueID" />
             <PropertyRef Name="AccountNumber" />
             <PropertyRef Name="MovieID" />
           </Key>
-          <Property Name="QueueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccountNumber" Type="int" Nullable="false" />
           <Property Name="MovieID" Type="int" Nullable="false" />
           <Property Name="DateAdded" Type="datetime" Nullable="false" />
@@ -193,11 +189,9 @@
         </EntityType>
         <EntityType Name="Credit">
           <Key>
-            <PropertyRef Name="CreditID" />
             <PropertyRef Name="MovieID" />
             <PropertyRef Name="ActorID" />
           </Key>
-          <Property Name="CreditID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MovieID" Type="Int32" Nullable="false" />
           <Property Name="ActorID" Type="Int32" Nullable="false" />
         </EntityType>
@@ -270,11 +264,9 @@
         </EntityType>
         <EntityType Name="Queue">
           <Key>
-            <PropertyRef Name="QueueID" />
             <PropertyRef Name="AccountNumber" />
             <PropertyRef Name="MovieID" />
           </Key>
-          <Property Name="QueueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AccountNumber" Type="Int32" Nullable="false" />
           <Property Name="MovieID" Type="Int32" Nullable="false" />
           <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
@@ -338,7 +330,6 @@
               <MappingFragment StoreEntitySet="Credits">
                 <ScalarProperty Name="ActorID" ColumnName="ActorID" />
                 <ScalarProperty Name="MovieID" ColumnName="MovieID" />
-                <ScalarProperty Name="CreditID" ColumnName="CreditID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -413,7 +404,6 @@
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
                 <ScalarProperty Name="MovieID" ColumnName="MovieID" />
                 <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
-                <ScalarProperty Name="QueueID" ColumnName="QueueID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

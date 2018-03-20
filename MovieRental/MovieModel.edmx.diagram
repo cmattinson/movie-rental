@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9f627d6400fd4895b4c85a73aed561bf" Name="Diagram1">
-        <EntityTypeShape EntityType="MovieRentalModel.Actor" Width="1.5" PointX="2.75" PointY="4.75" />
-        <EntityTypeShape EntityType="MovieRentalModel.Credit" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="MovieRentalModel.Customer" Width="1.5" PointX="0.75" PointY="7.25" />
-        <EntityTypeShape EntityType="MovieRentalModel.Employee" Width="1.5" PointX="0.75" PointY="12.125" />
-        <EntityTypeShape EntityType="MovieRentalModel.Movie" Width="1.5" PointX="0.75" PointY="1.25" />
-        <EntityTypeShape EntityType="MovieRentalModel.Order" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="MovieRentalModel.Queue" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MovieRentalModel.Actor" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MovieRentalModel.Credit" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MovieRentalModel.Customer" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="MovieRentalModel.Employee" Width="1.5" PointX="0.75" PointY="9.25" />
+        <EntityTypeShape EntityType="MovieRentalModel.Movie" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="MovieRentalModel.Order" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="MovieRentalModel.Queue" Width="1.5" PointX="5.75" PointY="3.75" />
         <AssociationConnector Association="MovieRentalModel.FK_Order_Customer" />
         <AssociationConnector Association="MovieRentalModel.FK_Order_Employee" />
         <AssociationConnector Association="MovieRentalModel.FK_Order_Movie" />

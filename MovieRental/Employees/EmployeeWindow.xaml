@@ -1,0 +1,19 @@
+﻿<Window x:Class="MovieRental.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieRental"
+        mc:Ignorable="d"
+        Title="EmployeeWindow" Height="800" Width="1500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="634" Margin="0,135,0,0" VerticalAlignment="Top" Width="200">
+            <Button x:Name="Orders" Content="View Orders" Height="70"/>
+            <Button x:Name="Customers" Content="Manage Customers" Height="70"/>
+            <Button x:Name="MailingList" Content="Produce a Mailing List" Height="70"/>
+            <Button x:Name="Recommendations" Content="Recommendations" Height="70"/>
+        </StackPanel>
+        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="1282" Margin="200,135,0,0" NavigationUIVisibility="Hidden" Background="#FF232323"/>
+
+    </Grid>
+</Window>

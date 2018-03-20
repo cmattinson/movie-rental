@@ -26,10 +26,12 @@ namespace MovieRental
     {
         // Connect to api using api key
         TMDbClient client = new TMDbClient("ce183dd9fdee061774d69813580b16ea");
+        Customer customer;
 
-        public BrowseMovies()
+        public BrowseMovies(Customer customer)
         {
             InitializeComponent();
+            this.customer = customer;
 
             using (var context = new MovieRentalEntities())
             {
@@ -79,7 +81,7 @@ namespace MovieRental
             {
                 Queue queue = new Queue()
                 {
-                    AccountNumber = 1,
+                    AccountNumber = customer.AccountNumber,
                     MovieID = current.MovieID,
                     DateAdded = System.DateTime.Today
                 };
@@ -88,14 +90,13 @@ namespace MovieRental
                 {
                     context.Queues.Add(queue);
                     context.SaveChanges();
+                    MessageBox.Show(current.Title + " has been added to your queue");
                 }
-                catch (DbUpdateException error)
+                catch (DbUpdateException)
                 {
-                    
+                    MessageBox.Show(current.Title + " is already in your queue");
                 }
             }
-
-
         }
 
         private void Rent_Click(object sender, RoutedEventArgs e)
@@ -108,8 +109,7 @@ namespace MovieRental
                 Order order = new Order()
                 {
                     MovieID = current.MovieID,
-                    AccountNumber = 2,
-
+                    AccountNumber = customer.AccountNumber,
                 };
 
                 try
@@ -117,7 +117,7 @@ namespace MovieRental
                     context.Orders.Add(order);
                     context.SaveChanges();
                 }
-                catch (DbUpdateException error)
+                catch (DbUpdateException)
                 {
 
                 }
