@@ -102,6 +102,21 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Managers\BrowseRentals.xaml.cs">
+      <DependentUpon>BrowseRentals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\EditMovies.xaml.cs">
+      <DependentUpon>EditMovies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ManageEmployees.xaml.cs">
+      <DependentUpon>ManageEmployees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\SalesReports.xaml.cs">
+      <DependentUpon>SalesReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Movie.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
@@ -144,6 +159,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Managers\BrowseRentals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Managers\EditMovies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Managers\ManageEmployees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Managers\ManagerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,6 +183,14 @@
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Managers\SalesReports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Managers\Statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MovieModel.Context.cs">

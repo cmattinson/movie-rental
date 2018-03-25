@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRental.Managers;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -38,6 +39,31 @@ namespace MovieRental
         private void AddMovies_Click(object sender, RoutedEventArgs e)
         {
             Frame.NavigationService.Navigate(new AddMovie());
+        }
+
+        private void ManageEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new ManageEmployees());
+        }
+
+        private void SalesReports_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new SalesReports());
+        }
+
+        private void BrowseMovies_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new EditMovies());
+        }
+
+        private void Rentals_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new BrowseRentals());
+        }
+
+        private void Statistics_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new Statistics());
         }
     }
 }

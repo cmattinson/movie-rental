@@ -138,7 +138,7 @@ namespace MovieRental
                     }
                     catch (System.Data.Entity.Infrastructure.DbUpdateException)
                     {
-                        MessageBox.Show("This actor is already in the database");
+                        // Actor already exists
                     }
 
 
@@ -156,7 +156,7 @@ namespace MovieRental
                     }
                     catch (System.Data.Entity.Infrastructure.DbUpdateException)
                     {
-                        MessageBox.Show("This credit is already in the database");
+                        // Credit already exists
                     }
                 }
             }
