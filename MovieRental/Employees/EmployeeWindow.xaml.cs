@@ -20,9 +20,12 @@ namespace MovieRental
     /// </summary>
     public partial class EmployeeWindow : Window
     {
-        public EmployeeWindow()
+        Employee employee;
+
+        public EmployeeWindow(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
 
             Frame.NavigationService.Navigate(new BrowseOrders());
         }

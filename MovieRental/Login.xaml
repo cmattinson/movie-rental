@@ -6,12 +6,11 @@
         xmlns:local="clr-namespace:MovieRental"
         mc:Ignorable="d"
         Title="Login" Height="500" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Label x:Name="User" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.94,2.482" Margin="55,61,0,0"/>
-        <Label x:Name="Password" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.94,2.482" Margin="55,135,0,0"/>
-        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="137,64,0,0"/>
-        <TextBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="137,138,0,0"/>
-        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="164,310,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
-
+    <Grid Background="#FF141414">
+        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="23" Margin="253,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF141414" Foreground="White"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="108,177,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="178,314,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="253,179,0,0" VerticalAlignment="Top" Width="120" Height="24" Background="#FF141414" Foreground="White"/>
     </Grid>
 </Window>

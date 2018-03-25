@@ -22,13 +22,17 @@ namespace MovieRental
         public Login()
         {
             InitializeComponent();
+            PasswordBox.PasswordChar = '•';
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameBox.Text;
-            string password = PasswordBox.Text;
+            string password = PasswordBox.Password;
+
             Customer customer;
+            Employee employee;
+            Employee manager;
 
             if (IsCustomer(username))
             {
@@ -41,6 +45,28 @@ namespace MovieRental
                 customerScreen.Show();
                 this.Close();
             }
+            else if (IsEmployee(username))
+            {
+                using (var context = new MovieRentalEntities())
+                {
+                    employee = context.Employees.Where(u => u.Username == username).FirstOrDefault();
+                }
+
+                var employeeScreen = new EmployeeWindow(employee);
+                employeeScreen.Show();
+                this.Close();
+            }
+            else if (IsManager(username))
+            {
+                using (var context = new MovieRentalEntities())
+                {
+                    manager = context.Employees.Where(u => u.Username == username).FirstOrDefault();
+                }
+
+                var managerScreen = new ManagerWindow(manager);
+                managerScreen.Show();
+                this.Close();
+            }
         }
 
         private bool IsCustomer(string username)
@@ -51,13 +77,61 @@ namespace MovieRental
                 {
                     var query = context.Customers.Where(u => u.Username == UsernameBox.Text).FirstOrDefault();
                     
-                    if (query.Password == PasswordBox.Text)
+                    if (query.Password == PasswordBox.Password)
                     {
                         return true;
                     }
                     else
                     {
                         Console.WriteLine("Incorrect password");
+                        return false;
+                    }
+                }
+                catch (System.NullReferenceException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        private bool IsEmployee(string username)
+        {
+            using (var context = new MovieRentalEntities())
+            {
+                try
+                {
+                    var employee = context.Employees.Where(e => e.Username == UsernameBox.Text).FirstOrDefault();
+
+                    if (employee.Password == PasswordBox.Password && employee.AccountType == 1) 
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (System.NullReferenceException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        private bool IsManager(string username)
+        {
+            using (var context = new MovieRentalEntities())
+            {
+                try
+                {
+                    var employee = context.Employees.Where(e => e.Username == UsernameBox.Text).FirstOrDefault();
+
+                    if (employee.Password == PasswordBox.Password && employee.AccountType == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
                         return false;
                     }
                 }

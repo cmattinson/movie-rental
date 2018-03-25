@@ -20,10 +20,13 @@ namespace MovieRental
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class ManagerWindow : Window
-    { 
-        public ManagerWindow()
+    {
+        Employee manager;
+
+        public ManagerWindow(Employee manager)
         {
             InitializeComponent();
+            this.manager = manager;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
