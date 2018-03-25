@@ -13,7 +13,7 @@
             <Button x:Name="MailingList" Content="Produce a Mailing List" Height="70"/>
             <Button x:Name="Recommendations" Content="Recommendations" Height="70"/>
         </StackPanel>
-        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="1282" Margin="200,135,0,0" NavigationUIVisibility="Hidden" Background="#FF232323"/>
+        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="1282" Margin="200,135,0,0" NavigationUIVisibility="Hidden" Background="White"/>
 
     </Grid>
 </Window>

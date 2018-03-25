@@ -27,6 +27,11 @@ namespace MovieRental
             this.customer = customer;
         }
 
+        public CustomerWindow()
+        {
+            InitializeComponent();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Frame.NavigationService.Navigate(new BrowseMovies(customer));

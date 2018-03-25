@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,13 +25,6 @@ namespace MovieRental.Employees
         public BrowseOrders()
         {
             InitializeComponent();
-
-            using (var context = new MovieRentalEntities())
-            {
-                var query = context.Orders.Where(order => order.ExpectedReturn == null).ToList();
-
-                OrderGrid.ItemsSource = query;
-            }
         }
     }
 }

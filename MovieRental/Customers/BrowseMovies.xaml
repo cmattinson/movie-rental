@@ -7,17 +7,17 @@
       mc:Ignorable="d" 
       d:DesignHeight="664" d:DesignWidth="1292
       "
-      Title="BrowseMovies">
+      Title="BrowseMovies" Foreground="White">
 
     <Grid>
-        <ListBox x:Name="MovieList" HorizontalAlignment="Left" Height="664" VerticalAlignment="Top" Width="205" Margin="1087,0,0,0" SelectionChanged="Movies_SelectionChanged"/>
-        <Image x:Name="Poster" HorizontalAlignment="Left" Height="340" VerticalAlignment="Top" Width="324" Margin="18,0,0,0"/>
-        <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Source Sans Pro Black" FontSize="36" Foreground="#FFCF0000" Margin="354,0,0,0"/>
-        <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="354,96,0,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Source Sans Pro Semibold" FontSize="24" Foreground="Black"/>
-        <TextBlock x:Name="MovieOverview" TextWrapping="Wrap" Text="Overview Body" FontSize="20" Foreground="Black" Margin="354,146,259,124"/>
-        <TextBlock x:Name="GenreText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" Margin="354,60,0,0" FontSize="20" RenderTransformOrigin="0.424,0.525"/>
-        <Button x:Name="Queue" Content="Add to Queue" HorizontalAlignment="Left" Margin="791,546,0,0" VerticalAlignment="Top" Width="103" Click="Queue_Click"/>
-        <Button x:Name="Rent" Content="Rent" HorizontalAlignment="Left" Margin="924,546,0,0" VerticalAlignment="Top" Width="75" Click="Rent_Click"/>
+        <ListBox x:Name="MovieList" HorizontalAlignment="Left" Height="664" VerticalAlignment="Top" Width="279" Margin="1013,0,0,0" SelectionChanged="Movies_SelectionChanged" Background="#FF141414" FontSize="14" Foreground="White" BorderBrush="#FFE50914"/>
+        <Image x:Name="Poster" HorizontalAlignment="Left" Height="340" VerticalAlignment="Top" Width="342" Margin="7,11,0,0"/>
+        <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Source Sans Pro Black" FontSize="36" Foreground="#FFCF0000" Margin="276,0,0,0"/>
+        <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="276,96,0,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Source Sans Pro Semibold" FontSize="24" Foreground="White"/>
+        <TextBlock x:Name="MovieOverview" TextWrapping="Wrap" Text="Overview Body" FontSize="20" Foreground="White" Margin="276,146,371,124"/>
+        <TextBlock x:Name="GenreText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" Margin="276,60,0,0" FontSize="20" RenderTransformOrigin="0.424,0.525" Foreground="White"/>
+        <Button x:Name="Queue" Content="Add to Queue" HorizontalAlignment="Left" Margin="713,545,0,0" VerticalAlignment="Top" Width="103" Click="Queue_Click" Background="#FF141414" Foreground="White" BorderBrush="#FFE50914"/>
+        <Button x:Name="Rent" Content="Rent" HorizontalAlignment="Left" Margin="846,545,0,0" VerticalAlignment="Top" Width="75" Click="Rent_Click" Background="#FF141414" Foreground="White" BorderBrush="#FFE50914"/>
 
 
     </Grid>

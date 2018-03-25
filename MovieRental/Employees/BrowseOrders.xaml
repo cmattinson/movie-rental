@@ -9,7 +9,20 @@
       Title="BrowseOrders">
 
     <Grid>
-        <DataGrid x:Name="OrderGrid" HorizontalAlignment="Left" Height="604" Margin="26,24,0,0" VerticalAlignment="Top" Width="1014"/>
-
+        <Button x:Name="Approve" Content="Approve" HorizontalAlignment="Left" Margin="1152,586,0,0" VerticalAlignment="Top" Width="76"/>
+        <ListView x:Name="OrderInfo" HorizontalAlignment="Left" Height="606" Margin="584,0,0,0" VerticalAlignment="Top" Width="513">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="OrderList" HorizontalAlignment="Left" Height="606" Margin="36,0,0,0" VerticalAlignment="Top" Width="403">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>
