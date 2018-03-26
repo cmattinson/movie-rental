@@ -65,6 +65,13 @@ namespace MovieRental
         {
             Frame.NavigationService.Navigate(new Statistics());
         }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            var login = new Login();
+            login.Show();
+            this.Close();
+        }
     }
 }
 

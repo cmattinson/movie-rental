@@ -89,6 +89,7 @@ namespace MovieRental
                 }
                 catch (System.NullReferenceException)
                 {
+                    Console.WriteLine("Not a customer");
                     return false;
                 }
             }

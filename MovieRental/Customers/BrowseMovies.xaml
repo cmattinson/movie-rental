@@ -14,19 +14,19 @@
         <Image x:Name="Poster" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="342" Margin="7,11,0,0"/>
         <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Source Sans Pro Black" FontSize="36" Foreground="#FFCF0000" Margin="355,0,0,0"/>
         <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="355,96,0,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Source Sans Pro Semibold" FontSize="24" Foreground="White"/>
-        <TextBlock x:Name="MovieOverview" TextWrapping="Wrap" FontSize="16" Foreground="White" Margin="355,146,292,218"><Run Text="Overview Body"/></TextBlock>
+        <TextBlock x:Name="MovieOverview" TextWrapping="Wrap" FontSize="16" Foreground="White" Margin="355,146,292,279"><Run Text="Overview Body"/></TextBlock>
         <TextBlock x:Name="GenreText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" Margin="355,60,0,0" FontSize="20" RenderTransformOrigin="0.424,0.525" Foreground="White"/>
-        <Button x:Name="Queue" Content="Add to Queue" HorizontalAlignment="Left" Margin="792,624,0,0" VerticalAlignment="Top" Width="103" Click="Queue_Click" Background="#FF141414" Foreground="White" BorderBrush="#FFE50914"/>
-        <Button x:Name="Rent" Content="Rent" HorizontalAlignment="Left" Margin="925,624,0,0" VerticalAlignment="Top" Width="75" Click="Rent_Click" Background="#FF141414" Foreground="White" BorderBrush="#FFE50914"/>
+        <Button x:Name="Queue" Content="Add to Queue" HorizontalAlignment="Left" Margin="792,550,0,0" VerticalAlignment="Top" Width="103" Click="Queue_Click" Background="#FF141414" Foreground="White" BorderBrush="#FFE50914"/>
+        <Button x:Name="Rent" Content="Rent" HorizontalAlignment="Left" Margin="925,550,0,0" VerticalAlignment="Top" Width="75" Click="Rent_Click" Background="#FF141414" Foreground="White" BorderBrush="#FFE50914"/>
         <Ellipse x:Name="RatingCircle" Fill="#FF141414" HorizontalAlignment="Left" Height="100" Margin="900,0,0,0" Stroke="#FFE50914" VerticalAlignment="Top" Width="100" StrokeThickness="5"/>
         <TextBlock x:Name="RatingNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="937,17,0,0" FontSize="48" Foreground="#FFE51D1D"/>
-        <ListBox x:Name="ActorList" HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="350" Margin="355,501,0,0" Background="#FF141414" BorderBrush="#FF141414" Foreground="White">
+        <ListBox x:Name="ActorList" HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="350" Margin="355,441,0,0" Background="#FF141414" BorderBrush="#FF141414" Foreground="White">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ListBoxItem}">
                     <Setter Property="Focusable" Value="False"/>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-        <Label Content="Top Cast" HorizontalAlignment="Left" Margin="355,462,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+        <Label Content="Top Cast" HorizontalAlignment="Left" Margin="355,402,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
     </Grid>
 </Page>

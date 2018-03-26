@@ -14,6 +14,7 @@
             <Button x:Name="Recommendations" Content="Recommendations" Height="70"/>
         </StackPanel>
         <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="1282" Margin="200,135,0,0" NavigationUIVisibility="Hidden" Background="White"/>
+        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="1395,34,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click"/>
 
     </Grid>
 </Window>

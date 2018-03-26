@@ -27,7 +27,14 @@ namespace MovieRental
             InitializeComponent();
             this.employee = employee;
 
-            Frame.NavigationService.Navigate(new BrowseOrders());
+            Frame.NavigationService.Navigate(new BrowseOrders(employee));
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            var login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

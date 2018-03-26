@@ -16,6 +16,6 @@
             <Button x:Name="Rentals" Content="View Rentals" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="Rentals_Click"/>
             <Button x:Name="Statistics" Content="Statistics" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="Statistics_Click"/>
         </StackPanel>
-        <ToolBarPanel HorizontalAlignment="Left" Height="135" VerticalAlignment="Top" Width="1494" Background="#FF141414"/>
+        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="1389,41,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click"/>
     </Grid>
 </Window>

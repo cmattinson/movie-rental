@@ -155,6 +155,8 @@ namespace MovieRental
                 {
                     context.Orders.Add(order);
                     context.SaveChanges();
+
+                    MessageBox.Show("Your request to rent " + current.Title + " has been sent");
                 }
                 catch (DbUpdateException)
                 {

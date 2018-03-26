@@ -9,20 +9,8 @@
       Title="BrowseOrders">
 
     <Grid>
-        <Button x:Name="Approve" Content="Approve" HorizontalAlignment="Left" Margin="1152,586,0,0" VerticalAlignment="Top" Width="76"/>
-        <ListView x:Name="OrderInfo" HorizontalAlignment="Left" Height="606" Margin="584,0,0,0" VerticalAlignment="Top" Width="513">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="OrderList" HorizontalAlignment="Left" Height="606" Margin="36,0,0,0" VerticalAlignment="Top" Width="403">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Button x:Name="Approve" Content="Approve" HorizontalAlignment="Left" Margin="1152,586,0,0" VerticalAlignment="Top" Width="76" Click="Approve_Click"/>
+        <ListBox x:Name="OrderList" HorizontalAlignment="Left" Height="585" Margin="39,0,0,0" VerticalAlignment="Top" Width="469" SelectionChanged="OrderList_SelectionChanged"/>
+        <ListBox x:Name="OrderInfo" HorizontalAlignment="Left" Height="581" Margin="742,0,0,0" VerticalAlignment="Top" Width="486"/>
     </Grid>
 </Page>
