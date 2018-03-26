@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TMDbLib.Client;
+using TMDbLib.Objects.General;
+using TMDbLib.Objects.People;
 using TMDbLib.Objects.Search;
 using APIMovie = TMDbLib.Objects.Movies.Movie;
 
@@ -66,10 +68,47 @@ namespace MovieRental
                 MovieOverview.Text = movie.Overview;
                 GenreText.Text = current.Genre;
 
-            }
-            catch (NullReferenceException)
-            {
+                int rating = current.Rating;
 
+                if (rating >= 4)
+                {
+                    RatingCircle.Stroke = Brushes.Green;
+                    RatingNumber.Text = rating.ToString();
+                    RatingNumber.Foreground = Brushes.Green;
+
+                }
+                else if (rating >= 2 && rating < 4)
+                {
+                    RatingCircle.Stroke = Brushes.Yellow;
+                    RatingNumber.Text = rating.ToString();
+                    RatingNumber.Foreground = Brushes.Yellow;
+                }
+                else
+                {
+                    RatingCircle.Stroke = Brushes.Red;
+                    RatingNumber.Text = rating.ToString();
+                    RatingNumber.Foreground = Brushes.Red;
+                }
+
+                using (var context = new MovieRentalEntities())
+                {
+                    var query = context.Credits.Where(c => c.MovieID == current.MovieID).ToList();
+
+                    List<string> actors = new List<string>();
+
+                    foreach (Credit credit in query)
+                    {
+                        var actor = client.GetPersonAsync(credit.ActorID).Result;
+
+                        actors.Add(actor.Name);
+                    }
+
+                    ActorList.ItemsSource = actors;
+                }
+            }
+            catch (NullReferenceException error)
+            {
+                Console.WriteLine(error.Message);
             }
         }
 

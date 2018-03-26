@@ -194,7 +194,7 @@ namespace MovieRental
                 Genre = genreDict[current.GenreIds[0]], // First available genre for the movie
                 DistributionFee = 20000,
                 NumberOfCopies = 10,
-                Rating = (int)Math.Round(current.VoteAverage)
+                Rating = (int)Math.Round(current.VoteAverage / 2)
             };
 
             try

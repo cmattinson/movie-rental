@@ -72,8 +72,20 @@
     <Compile Include="Actor.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Customers\BrowseOrders.xaml.cs">
+      <DependentUpon>BrowseOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employees\BrowseOrders.xaml.cs">
       <DependentUpon>BrowseOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\ManageCustomers.xaml.cs">
+      <DependentUpon>ManageCustomers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Recommendations.xaml.cs">
+      <DependentUpon>Recommendations.xaml</DependentUpon>
     </Compile>
     <Compile Include="Managers\AddMovie.xaml.cs">
       <DependentUpon>AddMovie.xaml</DependentUpon>
@@ -131,7 +143,23 @@
     <Compile Include="Queue.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Page Include="Customers\BrowseOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customers\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Employees\BrowseOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employees\ManageCustomers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employees\Recommendations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

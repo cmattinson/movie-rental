@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRental.Customers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,16 +26,13 @@ namespace MovieRental
         {
             InitializeComponent();
             this.customer = customer;
+
+            Frame.NavigationService.Navigate(new BrowseMovies(customer));
         }
 
         public CustomerWindow()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Frame.NavigationService.Navigate(new BrowseMovies(customer));
         }
 
         private void BrowseMovies_Click(object sender, RoutedEventArgs e)
@@ -45,6 +43,16 @@ namespace MovieRental
         private void BrowseQueue_Click(object sender, RoutedEventArgs e)
         {
             Frame.NavigationService.Navigate(new BrowseQueue());
+        }
+
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new BrowseOrders());
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new Settings());
         }
     }
 }

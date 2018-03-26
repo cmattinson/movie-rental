@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRental"
         mc:Ignorable="d"
-        Title="CustomerWindow" Height="800" Width="1500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" Background="#FF141414">
+        Title="CustomerWindow" Height="800" Width="1500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF141414">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="360" VerticalAlignment="Top" Width="100" Margin="0,59,0,0"/>
-        <ToolBarPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="1492" Background="#FF141414"/>
+        <ToolBarPanel HorizontalAlignment="Left" Height="101" VerticalAlignment="Top" Width="1492" Background="#FF141414"/>
         <StackPanel x:Name="ButtonStack" HorizontalAlignment="Left" Height="612" Margin="0,147,0,0" VerticalAlignment="Top" Width="200" Background="#FF141414">
             <Button x:Name="BrowseMovies" Content="Movies" Height="75" Click="BrowseMovies_Click" Background="#FF141413" Foreground="White" BorderBrush="#FF141414"/>
             <Button x:Name="BrowseQueue" Content="Queue" Height="75" Click="BrowseQueue_Click" Background="#FF141413" Foreground="White" BorderBrush="#FF141414"/>
-            <Button x:Name="Orders" Content="Your Orders" Height="75" Click="BrowseQueue_Click" Background="#FF141413" Foreground="White" BorderBrush="#FF141414"/>
-            <Button x:Name="Settings" Content="Account Settings" Height="75" Click="BrowseQueue_Click" Background="#FF141413" Foreground="White" BorderBrush="#FF141414"/>
+            <Button x:Name="Orders" Content="Your Orders" Height="75" Background="#FF141413" Foreground="White" BorderBrush="#FF141414" Click="Orders_Click"/>
+            <Button x:Name="Settings" Content="Account Settings" Height="75" Background="#FF141413" Foreground="White" BorderBrush="#FF141414" Click="Settings_Click"/>
         </StackPanel>
-        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" Margin="200,147,0,0" VerticalAlignment="Top" Width="1287" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" Margin="200,147,0,0" VerticalAlignment="Top" Width="1287" NavigationUIVisibility="Hidden" BorderBrush="#FFE51D14"/>
 
     </Grid>
 </Window>

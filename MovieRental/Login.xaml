@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Login" Height="500" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF141414">
-        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="23" Margin="253,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF141414" Foreground="White"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="108,177,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="178,314,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="253,179,0,0" VerticalAlignment="Top" Width="120" Height="24" Background="#FF141414" Foreground="White"/>
+        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="23" Margin="240,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF141414" Foreground="White"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="95,80,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="95,177,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="188,341,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="240,179,0,0" VerticalAlignment="Top" Width="120" Height="24" Background="#FF141414" Foreground="White"/>
     </Grid>
 </Window>
