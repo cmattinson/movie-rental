@@ -8,6 +8,7 @@ namespace MovieRental
 {
     public partial class Order
     {
-        public virtual string OrderInfo { get { return "Account " + AccountNumber + " - " + Movie.Title; } }
+        public virtual string EmployeeOrderInfo { get { return "Account " + AccountNumber + " - " + Movie.Title; } }
+        public virtual string CustomerOrderInfo { get { return Movie.Title + " - " + RentalDate.ToString(); } }
     }
 }

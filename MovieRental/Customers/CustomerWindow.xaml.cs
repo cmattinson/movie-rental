@@ -47,7 +47,7 @@ namespace MovieRental
 
         private void Orders_Click(object sender, RoutedEventArgs e)
         {
-            Frame.NavigationService.Navigate(new BrowseOrders());
+            Frame.NavigationService.Navigate(new BrowseOrders(customer));
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)

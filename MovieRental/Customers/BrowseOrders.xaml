@@ -5,10 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MovieRental.Customers"
       mc:Ignorable="d" 
-      d:DesignHeight="664" d:DesignWidth="1292"
+      d:DesignHeight="669" d:DesignWidth="1294"
       Title="BrowseOrders">
 
     <Grid>
-        
+        <ListView x:Name="OrderList" HorizontalAlignment="Left" Height="570" Margin="78,0,0,0" VerticalAlignment="Top" Width="630" Foreground="#FF212121" SelectionChanged="OrderList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Page>
