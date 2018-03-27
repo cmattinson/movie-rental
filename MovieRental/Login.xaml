@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRental"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Background="#FF141414">
-        <TextBox x:Name="UsernameBox" TabIndex="0" HorizontalAlignment="Left" Height="23" Margin="240,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF141414" Foreground="White"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="95,80,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="95,177,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="188,341,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
-        <PasswordBox x:Name="PasswordBox" TabIndex="1" HorizontalAlignment="Left" Margin="240,179,0,0" VerticalAlignment="Top" Width="120" Height="24" Background="#FF141414" Foreground="White"/>
+        Title="Login" Height="500" Width="535" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFFAF9FA">
+        <TextBox x:Name="UsernameBox" TabIndex="0" HorizontalAlignment="Center" Height="23" Margin="0,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Background="#FFFAF9FA" Foreground="#FF1E1E1E"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="137,48,0,0" VerticalAlignment="Top" Foreground="#FF1E1E1E" Background="#FFFAF9FA" FontWeight="Bold" FontFamily="Source Sans Pro" FontSize="14"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="137,117,0,0" VerticalAlignment="Top" Foreground="#FF1E1E1E" Background="#FFFAF9FA" FontWeight="Bold" FontSize="14" FontFamily="Source Sans Pro"/>
+        <Button x:Name="LoginButton" Content="Log In" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
+        <PasswordBox x:Name="PasswordBox" TabIndex="1" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top" Width="250" Height="24" Background="#FFFAF9FA" Foreground="#FF1E1E1E"/>
     </Grid>
 </Window>

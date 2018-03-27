@@ -35,6 +35,10 @@ namespace MovieRental
             InitializeComponent();
             this.customer = customer;
 
+            SearchBy.Items.Add("Actor");
+            SearchBy.Items.Add("Genre");
+            SearchBy.Items.Add("Title");
+
             using (var context = new MovieRentalEntities())
             {
                 var movies = from m in context.Movies select m;
@@ -79,9 +83,9 @@ namespace MovieRental
                 }
                 else if (rating >= 2 && rating < 4)
                 {
-                    RatingCircle.Stroke = Brushes.Yellow;
+                    RatingCircle.Stroke = Brushes.Gold;
                     RatingNumber.Text = rating.ToString();
-                    RatingNumber.Foreground = Brushes.Yellow;
+                    RatingNumber.Foreground = Brushes.Gold;
                 }
                 else
                 {
@@ -163,6 +167,132 @@ namespace MovieRental
 
                 }
             }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<Movie> movies = new List<Movie>();
+
+            switch (SearchBy.SelectedItem)
+            {
+                case "Title":
+                    movies = SearchByTitle(SearchBox.Text);
+
+                    if (movies.Count() == 0)
+                    {
+                        MessageBox.Show(SearchBox.Text + " not found");
+                    }
+                    else
+                    {
+                        MovieList.DisplayMemberPath = "Title";
+                        MovieList.ItemsSource = movies;
+                        MovieList.SelectedIndex = 0;
+                    }
+
+                    break;
+                case "Actor":
+                    movies = SearchByActor(SearchBox.Text);
+
+                    if (movies.Count() == 0)
+                    {
+                        MessageBox.Show("No movies with " + SearchBox.Text + " found");
+                    }
+                    else
+                    {
+                        MovieList.DisplayMemberPath = "Title";
+                        MovieList.ItemsSource = movies;
+                        MovieList.SelectedIndex = 0;
+                    }
+
+                    break;
+
+
+            }
+           
+            
+        }
+
+        private List<Movie> SearchByTitle(string title)
+        {
+            List<Movie> movies = new List<Movie>();
+
+            using (var context = new MovieRentalEntities())
+            {
+                movies = context.Movies.Where(movie => movie.Title.Contains(SearchBox.Text)).ToList();
+                return movies;
+            }
+        }
+
+        // Search movies by actor name
+        private List<Movie> SearchByActor(string name)
+        {
+            List<Movie> movies = new List<Movie>();
+            List<Actor> actors = new List<Actor>();
+
+            // User entered both first and last name
+            if (name.Contains(" "))
+            {
+                string first; string last;
+                string[] names = name.Split(' ');
+
+                first = names[0];
+                last = names[1];
+
+                using (var context = new MovieRentalEntities())
+                {
+                    var firstSearch = context.Actors.Where(a => a.FirstName.Equals(first)).ToList();
+                    var lastSearch = context.Actors.Where(a => a.LastName.Equals(last)).ToList();
+
+                    actors.AddRange(firstSearch);
+                    actors.AddRange(lastSearch);
+
+                    var unique = new HashSet<Actor>(actors);
+
+                    foreach (Actor actor in unique)
+                    {
+                        var actorCredits = context.Credits.Where(credit => credit.ActorID == actor.ActorID).ToList();
+
+                        // Add every movie the actor has been in to the result set
+                        foreach(Credit credit in actorCredits)
+                        {
+                            var movie = context.Movies.Where(m => m.MovieID == credit.MovieID).FirstOrDefault();
+                            movies.Add(movie);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // User entered either a first name or a last name
+                using (var context = new MovieRentalEntities())
+                {
+                    // E.g - User entered "Chris", find all Chris/Christopher/Christian/etc actors
+                    var firstSearch = context.Actors.Where(a => a.FirstName.Contains(name)).ToList();
+
+                    // E.g - User entered "Pratt", find all actors with last name Pratt or something containing Pratt
+                    var lastSearch = context.Actors.Where(a => a.LastName.Contains(name)).ToList();
+
+                    // Add all matches to the list
+                    actors.AddRange(firstSearch);
+                    actors.AddRange(lastSearch);
+
+                    var unique = new HashSet<Actor>(actors);
+
+                    foreach (Actor actor in unique)
+                    {
+                        var actorCredits = context.Credits.Where(credit => credit.ActorID == actor.ActorID).ToList();
+
+                        // Add every movie the actor has been in to the result set
+                        foreach (Credit credit in actorCredits)
+                        {
+                            var movie = context.Movies.Where(m => m.MovieID == credit.MovieID).FirstOrDefault();
+                            movies.Add(movie);
+                        }
+                    }
+                }
+            }
+         
+            return movies;
         }
     }
 }
