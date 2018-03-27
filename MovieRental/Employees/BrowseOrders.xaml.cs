@@ -74,6 +74,8 @@ namespace MovieRental.Employees
                     order.RentalDate = System.DateTime.Today;
                     order.ExpectedReturn = System.DateTime.Today.AddMonths(1);
                     context.SaveChanges();
+
+                    MessageBox.Show("Order has been approved");
                 }
             }
         }
