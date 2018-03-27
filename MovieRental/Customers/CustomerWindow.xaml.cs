@@ -42,7 +42,7 @@ namespace MovieRental
 
         private void BrowseQueue_Click(object sender, RoutedEventArgs e)
         {
-            Frame.NavigationService.Navigate(new BrowseQueue());
+            Frame.NavigationService.Navigate(new BrowseQueue(customer));
         }
 
         private void Orders_Click(object sender, RoutedEventArgs e)

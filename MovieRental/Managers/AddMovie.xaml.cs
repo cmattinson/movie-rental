@@ -84,8 +84,6 @@ namespace MovieRental
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            var context = new MovieRentalEntities();
-
             SearchMovie current = (SearchMovie)MovieListBox.SelectedItem;
 
             Credits credits = client.GetMovieCreditsAsync(current.Id).Result;
@@ -120,43 +118,41 @@ namespace MovieRental
                         firstName = names[0]; lastName = names[1];
                     }
 
-                    // Add the movie's top 5 actors to the actors table
-                    Actor actor = new Actor()
+                    using (var context = new MovieRentalEntities())
                     {
-                        ActorID = id,
-                        FirstName = firstName,
-                        LastName = lastName,
-                        Sex = sex,
-                        Age = age,
-                        Rating = 1
-                    };
+                        // If the actor exists, don't do anything
+                        if (context.Actors.Any(a => a.ActorID == id))
+                        {
+                            
+                        }
+                        else
+                        {
+                            Actor actor = new Actor()
+                            {
+                                ActorID = id,
+                                FirstName = firstName,
+                                LastName = lastName,
+                                Sex = sex,
+                                Age = age,
+                                Rating = 1
+                            };
 
-                    try
-                    {
-                        context.Actors.Add(actor);
-                        context.SaveChanges();
+                            context.Actors.Add(actor);
+                            context.SaveChanges();
+                        }
                     }
-                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
-                    {
-                        // Actor already exists
-                    }
 
-
-                    // Add the actor's credits for this movie into the database
-                    Credit credit = new Credit()
+                    using (var context = new MovieRentalEntities())
                     {
-                        MovieID = current.Id,
-                        ActorID = id
-                    };
+                        // Add the actor's credits for this movie into the database
+                        Credit credit = new Credit()
+                        {
+                            MovieID = current.Id,
+                            ActorID = id
+                        };
 
-                    try
-                    {
                         context.Credits.Add(credit);
                         context.SaveChanges();
-                    }
-                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
-                    {
-                        // Credit already exists
                     }
                 }
             }
@@ -185,28 +181,31 @@ namespace MovieRental
             genreDict.Add(37, "Western");
 
             var image = client.GetMovieImagesAsync(current.Id);
-            Console.WriteLine(image);
 
-            Movie movie = new Movie()
+            using (var context = new MovieRentalEntities())
             {
-                MovieID = current.Id,
-                Title = current.Title,
-                Genre = genreDict[current.GenreIds[0]], // First available genre for the movie
-                DistributionFee = 20000,
-                NumberOfCopies = 10,
-                Rating = (int)Math.Round(current.VoteAverage / 2)
-            };
 
-            try
-            {
+                if (context.Movies.Any(m => m.MovieID == current.Id))
+                {
+                    MessageBox.Show("Movie is already in the database");
+                    return;
+                }
+                    
+
+                Movie movie = new Movie()
+                {
+                    MovieID = current.Id,
+                    Title = current.Title,
+                    Genre = genreDict[current.GenreIds[0]], // First available genre for the movie
+                    DistributionFee = 20000,
+                    NumberOfCopies = 10,
+                    Rating = (int)Math.Round(current.VoteAverage / 2)
+                };
+
                 context.Movies.Add(movie);
                 context.SaveChanges();
 
                 MessageBox.Show("Movie added successfully!");
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException)
-            {
-                MessageBox.Show("This movie is already in the database");
             }
         }
     }

@@ -6,19 +6,20 @@
         xmlns:local="clr-namespace:MovieRental"
         mc:Ignorable="d"
         Title="Manager Utilities" Height="800" Width="1500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
-    <Grid Background="#FF141414">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="935*"/>
             <ColumnDefinition Width="558*"/>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="1282" Margin="200,135,0,0" NavigationUIVisibility="Hidden" Background="#FF141414" Grid.ColumnSpan="2"/>
-        <StackPanel x:Name="ButtonStack" HorizontalAlignment="Left" Height="624" VerticalAlignment="Top" Width="200" Background="#FF141414" Margin="0,135,0,0">
-            <Button x:Name="AddMovies" Content="Add Movies" Click="AddMovies_Click" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
-            <Button x:Name="ManageEmployees" Content="Manage Employees" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="ManageEmployees_Click"/>
-            <Button x:Name="SalesReports" Content="Sales Reports" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="SalesReports_Click"/>
-            <Button x:Name="BrowseMovies" Content="Browse Movies" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="BrowseMovies_Click"/>
-            <Button x:Name="Rentals" Content="View Rentals" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="Rentals_Click"/>
-            <Button x:Name="Statistics" Content="Statistics" Height="70" Background="#FF141414" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="Statistics_Click"/>
+        <Rectangle Fill="#FFC62828" HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="1494" Grid.ColumnSpan="2"/>
+        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="669" VerticalAlignment="Top" Width="1294" Margin="200,102,0,0" NavigationUIVisibility="Hidden" Background="#FFFAF9FA" Grid.ColumnSpan="2"/>
+        <StackPanel x:Name="ButtonStack" HorizontalAlignment="Left" Height="669" VerticalAlignment="Top" Width="200" Background="#FF212121" Margin="0,102,0,0">
+            <Button x:Name="AddMovies" Content="Add Movies" Click="AddMovies_Click" Height="70" Background="#FF212121" Foreground="#FFCFCFCF" BorderBrush="#FF232323"/>
+            <Button x:Name="ManageEmployees" Content="Manage Employees" Height="70" Background="#FF212121" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="ManageEmployees_Click"/>
+            <Button x:Name="SalesReports" Content="Sales Reports" Height="70" Background="#FF212121" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="SalesReports_Click"/>
+            <Button x:Name="BrowseMovies" Content="Browse Movies" Height="70" Background="#FF212121" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="BrowseMovies_Click"/>
+            <Button x:Name="Rentals" Content="View Rentals" Height="70" Background="#FF212121" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="Rentals_Click"/>
+            <Button x:Name="Statistics" Content="Statistics" Height="70" Background="#FF212121" Foreground="#FFCFCFCF" BorderBrush="#FF232323" Click="Statistics_Click"/>
         </StackPanel>
         <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="453.86,41,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click" Grid.Column="1"/>
     </Grid>
