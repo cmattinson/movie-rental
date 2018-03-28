@@ -157,29 +157,6 @@ namespace MovieRental
                 }
             }
 
-            // TODO: Move this
-            var genreDict = new Dictionary<int, string>();
-
-            genreDict.Add(28, "Action");
-            genreDict.Add(12, "Adventure");
-            genreDict.Add(16, "Animation");
-            genreDict.Add(35, "Comedy");
-            genreDict.Add(80, "Crime");
-            genreDict.Add(99, "Documentary");
-            genreDict.Add(18, "Drama");
-            genreDict.Add(10751, "Family");
-            genreDict.Add(14, "Fantasy");
-            genreDict.Add(36, "History");
-            genreDict.Add(27, "Horror");
-            genreDict.Add(10402, "Music");
-            genreDict.Add(9648, "Mystery");
-            genreDict.Add(10749, "Romance");
-            genreDict.Add(878, "Science Fiction");
-            genreDict.Add(10770, "TV Movie");
-            genreDict.Add(53, "Thriller");
-            genreDict.Add(10752, "War");
-            genreDict.Add(37, "Western");
-
             var image = client.GetMovieImagesAsync(current.Id);
 
             using (var context = new MovieRentalEntities())
@@ -196,7 +173,7 @@ namespace MovieRental
                 {
                     MovieID = current.Id,
                     Title = current.Title,
-                    Genre = genreDict[current.GenreIds[0]], // First available genre for the movie
+                    Genre = GenreDict.genreDict[current.GenreIds[0]], // First available genre for the movie
                     DistributionFee = 20000,
                     NumberOfCopies = 10,
                     Rating = (int)Math.Round(current.VoteAverage / 2)

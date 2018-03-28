@@ -88,6 +88,7 @@
     <Compile Include="Employees\Recommendations.xaml.cs">
       <DependentUpon>Recommendations.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GenreDict.cs" />
     <Compile Include="Managers\AddMovie.xaml.cs">
       <DependentUpon>AddMovie.xaml</DependentUpon>
     </Compile>
@@ -133,6 +134,7 @@
     <Compile Include="Movie.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MovieExtensions.cs" />
     <Compile Include="MovieModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

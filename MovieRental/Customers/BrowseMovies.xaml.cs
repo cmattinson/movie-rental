@@ -48,6 +48,13 @@ namespace MovieRental
                 MovieList.SelectedIndex = 0;
             }
 
+            Genres.ItemsSource = GenreDict.genreDict;
+            Genres.SelectedValuePath = "Value";
+            Genres.DisplayMemberPath = "Value";
+            Genres.SelectedIndex = 0;
+
+            SearchBy.SelectedIndex = 2;
+            Genres.Visibility = Visibility.Hidden;
         }
 
         private void Movies_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -205,11 +212,23 @@ namespace MovieRental
                     }
 
                     break;
+                case "Genre":
+                    movies = SearchByGenre(Genres.SelectedValue.ToString());
+
+                    if (movies.Count() == 0)
+                    {
+                        MessageBox.Show("No movies in the " + Genres.SelectedValue.ToString() + " genre");
+                    }
+                    else
+                    {
+                        MovieList.DisplayMemberPath = "Title";
+                        MovieList.ItemsSource = movies;
+                        MovieList.SelectedIndex = 0;
+                    }
+                    break;
 
 
             }
-           
-            
         }
 
         private List<Movie> SearchByTitle(string title)
@@ -219,6 +238,17 @@ namespace MovieRental
             using (var context = new MovieRentalEntities())
             {
                 movies = context.Movies.Where(movie => movie.Title.Contains(SearchBox.Text)).ToList();
+                return movies;
+            }
+        }
+
+        private List<Movie> SearchByGenre(string genre)
+        {
+            List<Movie> movies = new List<Movie>();
+
+            using (var context = new MovieRentalEntities())
+            {
+                movies = context.Movies.Where(movie => movie.Genre.Equals(genre)).ToList();
                 return movies;
             }
         }
@@ -293,6 +323,32 @@ namespace MovieRental
             }
          
             return movies;
+        }
+
+        private void Genres_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchBy_DropDownClosed(object sender, EventArgs e)
+        {
+            string current = (string)SearchBy.SelectedItem;
+
+            switch (current)
+            {
+                case "Title":
+                    SearchBox.Visibility = Visibility.Visible;
+                    Genres.Visibility = Visibility.Hidden;
+                    break;
+                case "Actor":
+                    SearchBox.Visibility = Visibility.Visible;
+                    Genres.Visibility = Visibility.Hidden;
+                    break;
+                case "Genre":
+                    Genres.Visibility = Visibility.Visible;
+                    SearchBox.Visibility = Visibility.Hidden;
+                    break;
+            }
         }
     }
 }
