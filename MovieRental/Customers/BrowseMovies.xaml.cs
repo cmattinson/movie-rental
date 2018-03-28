@@ -53,6 +53,7 @@ namespace MovieRental
             Genres.DisplayMemberPath = "Value";
             Genres.SelectedIndex = 0;
 
+            // Initially search by titles and hide the genre combobox
             SearchBy.SelectedIndex = 2;
             Genres.Visibility = Visibility.Hidden;
         }
@@ -323,11 +324,6 @@ namespace MovieRental
             }
          
             return movies;
-        }
-
-        private void Genres_DropDownClosed(object sender, EventArgs e)
-        {
-
         }
 
         private void SearchBy_DropDownClosed(object sender, EventArgs e)

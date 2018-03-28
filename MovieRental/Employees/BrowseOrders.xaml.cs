@@ -30,7 +30,7 @@ namespace MovieRental.Employees
             InitializeComponent();
             this.employee = employee;
 
-            OrderList.DisplayMemberPath = "OrderInfo";
+            OrderList.DisplayMemberPath = "EmployeeOrderInfo";
             OrderList.ItemsSource = GetOrders();
         }
 

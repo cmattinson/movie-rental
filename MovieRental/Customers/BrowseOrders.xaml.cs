@@ -56,19 +56,44 @@ namespace MovieRental.Customers
 
             using (var context = new MovieRentalEntities())
             {
-                var orders = context.Orders.Include("Movie").Where(o => o.AccountNumber == customer.AccountNumber && o.RentalDate != null).ToList();
+                // Orders that have been approved and not returned yet
+                var orders = context.Orders.Include("Movie").Where(o => o.AccountNumber == customer.AccountNumber && o.RentalDate != null 
+                && o.ActualReturn == null).ToList();
 
                 foreach (Order order in orders)
                 {
                     OrderList.Items.Add(new OrderView { OrderID = order.OrderID, Title = order.Movie.Title,
-                        Date = order.RentalDate.ToString(), Expected = order.ExpectedReturn.ToString() });
+                        Date = order.RentalDate.Value.ToShortDateString(), Expected = order.ExpectedReturn.Value.ToShortDateString() });
                 }
+            }
+
+            using (var context = new MovieRentalEntities())
+            {
+                // Orders that have been returned
+                var history = context.Orders.Include("Movie").Where(o => o.AccountNumber == customer.AccountNumber && o.ActualReturn != null).ToList();
+
+                History.DisplayMemberPath = "CustomerOrderInfo";
+                History.ItemsSource = history;
             }
         }
 
         private void OrderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            OrderView current = (OrderView)OrderList.SelectedItem;
+
+            using (var context = new MovieRentalEntities())
+            {
+                var order = context.Orders.SingleOrDefault(o => o.OrderID == current.OrderID);
+
+                order.ActualReturn = DateTime.Today;
+                context.SaveChanges();
+                MessageBox.Show("Movie has been returned");
+            }
         }
     }
 }
