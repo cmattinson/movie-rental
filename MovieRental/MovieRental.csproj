@@ -85,9 +85,6 @@
     <Compile Include="Employees\ManageCustomers.xaml.cs">
       <DependentUpon>ManageCustomers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Employees\Recommendations.xaml.cs">
-      <DependentUpon>Recommendations.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GenreDict.cs" />
     <Compile Include="Managers\AddMovie.xaml.cs">
       <DependentUpon>AddMovie.xaml</DependentUpon>
@@ -162,10 +159,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Employees\ManageCustomers.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Employees\Recommendations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,13 +9,11 @@
     <Grid>
         <Rectangle Fill="#FFC62828" HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="1494" Margin="0,0,-2,0"/>
 
-        <StackPanel HorizontalAlignment="Left" Height="667" Margin="0,102,0,0" VerticalAlignment="Top" Width="200" Background="#FF212121">
+        <StackPanel HorizontalAlignment="Left" Height="669" Margin="0,102,0,-2" VerticalAlignment="Top" Width="200" Background="#FF212121">
             <Button x:Name="Orders" Content="View Orders" Height="70" Background="#FF212121" Foreground="#FFFAF9FA" BorderBrush="#FF141414"/>
-            <Button x:Name="Customers" Content="Manage Customers" Height="70" Background="#FF212121" Foreground="#FFFAF9FA" BorderBrush="#FF141414"/>
-            <Button x:Name="MailingList" Content="Produce a Mailing List" Height="70" Background="#FF212121" Foreground="#FFFAF9FA" BorderBrush="#FF141414"/>
-            <Button x:Name="Recommendations" Content="Recommendations" Height="70" Background="#FF212121" Foreground="#FFFAF9FA" BorderBrush="#FF141414"/>
+            <Button x:Name="Customers" Content="Manage Customers" Height="70" Background="#FF212121" Foreground="#FFFAF9FA" BorderBrush="#FF141414" Click="Customers_Click"/>
         </StackPanel>
-        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="667" VerticalAlignment="Top" Width="1294" Margin="200,102,-2,0" NavigationUIVisibility="Hidden" Background="White"/>
+        <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="669" VerticalAlignment="Top" Width="1294" Margin="200,102,-2,0" NavigationUIVisibility="Hidden" Background="White"/>
         <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="1395,34,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click"/>
 
     </Grid>

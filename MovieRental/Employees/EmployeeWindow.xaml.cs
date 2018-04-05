@@ -36,5 +36,10 @@ namespace MovieRental
             login.Show();
             this.Close();
         }
+
+        private void Customers_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.NavigationService.Navigate(new ManageCustomers());
+        }
     }
 }

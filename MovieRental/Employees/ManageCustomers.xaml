@@ -9,6 +9,66 @@
       Title="ManageCustomers">
 
     <Grid>
-        
+        <Grid>
+            <TabControl>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Add" Foreground="Black"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="1083*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="First name" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="Last name" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="54"></TextBlock>
+                            <TextBlock Text="Address" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="City" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="Province" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="Postal Code" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="Phone" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="Email" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="Account Type" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,0" Grid.ColumnSpan="2" Height="16" Width="200"></TextBlock>
+                            <TextBlock Text="Credit Card" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            <TextBlock Text="Username" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+                            
+
+                        </Grid>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Edit" Foreground="Black"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <Grid/>
+                    </TabItem.Content>
+                </TabItem>
+                <Label Height="100" Width="100">
+                    <Label Content="Label" Height="100" Width="100"/>
+                </Label>
+            </TabControl>
+        </Grid>
     </Grid>
+
 </Page>

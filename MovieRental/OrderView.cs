@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieRental
 {
-    // Represents an order for a customer in the order list
+    // Represents an order for a customer in the order grid
     public class OrderView
     {
         public int OrderID { get; set; }
