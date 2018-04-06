@@ -73,7 +73,7 @@
           <Property Name="NumberOfCopies" Type="int" Nullable="false" />
           <Property Name="Rating" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Order">
+        <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
@@ -96,36 +96,36 @@
         </EntityType>
         <Association Name="FK_Order_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="AccountNumber" />
             </Principal>
-            <Dependent Role="Order">
+            <Dependent Role="Orders">
               <PropertyRef Name="AccountNumber" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="SIN" />
             </Principal>
-            <Dependent Role="Order">
+            <Dependent Role="Orders">
               <PropertyRef Name="SIN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Movie">
           <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Movie">
               <PropertyRef Name="MovieID" />
             </Principal>
-            <Dependent Role="Order">
+            <Dependent Role="Orders">
               <PropertyRef Name="MovieID" />
             </Dependent>
           </ReferentialConstraint>
@@ -136,19 +136,19 @@
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Queue" EntityType="Self.Queue" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
             <End Role="Customer" EntitySet="Customer" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Employee" Association="Self.FK_Order_Employee">
             <End Role="Employee" EntitySet="Employee" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Movie" Association="Self.FK_Order_Movie">
             <End Role="Movie" EntitySet="Movie" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -387,7 +387,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="MovieRentalModel.Order">
-              <MappingFragment StoreEntitySet="Order">
+              <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="ActualReturn" ColumnName="ActualReturn" />
                 <ScalarProperty Name="ExpectedReturn" ColumnName="ExpectedReturn" />
                 <ScalarProperty Name="RentalDate" ColumnName="RentalDate" />

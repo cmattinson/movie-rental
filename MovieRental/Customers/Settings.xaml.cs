@@ -64,7 +64,7 @@ namespace MovieRental.Customers
             }
         }
 
-        // TODO: Username and password changing
+        // TODO: Tab indices
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             using (var context = new MovieRentalEntities())
