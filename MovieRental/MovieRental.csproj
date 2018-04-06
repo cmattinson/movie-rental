@@ -76,8 +76,20 @@
     <Compile Include="Customers\BrowseOrders.xaml.cs">
       <DependentUpon>BrowseOrders.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Customers\Limited.xaml.cs">
+      <DependentUpon>Limited.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customers\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Unlimited1.xaml.cs">
+      <DependentUpon>Unlimited1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Unlimited2.xaml.cs">
+      <DependentUpon>Unlimited2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Unlimited3.xaml.cs">
+      <DependentUpon>Unlimited3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees\BrowseOrders.xaml.cs">
       <DependentUpon>BrowseOrders.xaml</DependentUpon>
@@ -150,7 +162,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Customers\Limited.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Customers\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customers\Unlimited1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customers\Unlimited2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customers\Unlimited3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
