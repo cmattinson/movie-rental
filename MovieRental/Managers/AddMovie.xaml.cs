@@ -69,7 +69,6 @@ namespace MovieRental
                 System.UriBuilder uriBuilder = new System.UriBuilder(apiUri);
                 uriBuilder.Path += posterPath;
 
-                // TODO: Check if this is null
                 MoviePoster.Source = new BitmapImage(uriBuilder.Uri);
 
                 MovieTitle.Text = current.Title;

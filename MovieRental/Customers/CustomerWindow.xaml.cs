@@ -52,7 +52,7 @@ namespace MovieRental
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            Frame.NavigationService.Navigate(new Settings());
+            Frame.NavigationService.Navigate(new Settings(customer));
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
