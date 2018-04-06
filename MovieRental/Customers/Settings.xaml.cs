@@ -37,6 +37,11 @@ namespace MovieRental.Customers
             PostalCodeBox.Text = customer.PostalCode;
             PhoneNumberBox.Text = customer.Phone;
             EmailBox.Text = customer.Email;
+            UsernameBox.Text = customer.Username;
+
+            PasswordBox.PasswordChar = '•';
+            ConfirmBox.PasswordChar = '•';
+
 
             AccountInfo.Text = "Your account is " + (Account)customer.AccountType;
 
@@ -99,6 +104,15 @@ namespace MovieRental.Customers
                     if (!string.IsNullOrWhiteSpace(EmailBox.Text))
                     {
                         customer.Email = EmailBox.Text;
+                    }
+                    if (!string.IsNullOrWhiteSpace(UsernameBox.Text))
+                    {
+                        customer.Username = UsernameBox.Text;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(PasswordBox.Password) && PasswordBox.Password == ConfirmBox.Password)
+                    {
+                        customer.Password = PasswordBox.Password;
                     }
 
                     context.SaveChanges();
