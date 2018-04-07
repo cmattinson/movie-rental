@@ -171,16 +171,23 @@ namespace MovieRental
                 // The first day of the current month
                 DateTime firstOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
 
-                var countMonth = "SELECT COUNT(*) FROM dbo.Orders WHERE RentalDate > @date";
-                var countCurrent = "SELECT COUNT(*) FROM dbo.Orders WHERE RentalDate > @date AND ActualReturn IS NULL";
+                var countMonth = "SELECT COUNT(*) FROM dbo.Orders WHERE RentalDate > @date AND AccountNumber = @account";
+                var countRequests = "SELECT COUNT(*) FROM dbo.Orders WHERE RentalDate IS NULL AND AccountNumber = @account";
+                var countCurrent = "SELECT COUNT(*) FROM dbo.Orders WHERE AccountNumber = @account AND RentalDate > @date AND ActualReturn IS NULL";
 
-                var monthlyOrders = context.Database.SqlQuery<int>(countMonth, new SqlParameter("@date", firstOfMonth)).Single();
-                var currentOrders = context.Database.SqlQuery<int>(countCurrent, new SqlParameter("@date", firstOfMonth)).Single();
+                var monthlyOrders = context.Database.SqlQuery<int>(countMonth, new SqlParameter("@date", firstOfMonth), 
+                    new SqlParameter("@account", customer.AccountNumber)).Single();
+
+                var requests = context.Database.SqlQuery<int>(countRequests, new SqlParameter("@account", customer.AccountNumber)).Single();
+
+                var currentOrders = context.Database.SqlQuery<int>(countCurrent, new SqlParameter("@account", customer.AccountNumber),
+                    new SqlParameter("@date", firstOfMonth)).Single();
+
                 Console.WriteLine(currentOrders);
 
                 int account = customer.AccountType;
 
-                if (monthlyOrders == 1 && account == 0)
+                if ((monthlyOrders == 1 || requests == 1) && account == 0)
                 {
                     MessageBox.Show("You have already rented your movie for the month");
                     return;
@@ -188,25 +195,25 @@ namespace MovieRental
 
                 if (account == 1)
                 {
-                    if (currentOrders == 1)
+                    if (currentOrders == 1 || requests == 1)
                     {
-                        MessageBox.Show("You can only rent one movie at a time");
+                        MessageBox.Show("You can only rent one movie at a time. Please return a movie or wait for your previous orders to be approved.");
                         return;
                     }
                 }
                 if (account == 2)
                 {
-                    if (currentOrders == 2)
+                    if (currentOrders == 2 || requests == 2)
                     {
-                        MessageBox.Show("You can only rent two movies at a time");
+                        MessageBox.Show("You can only rent two movies at a time. Please return a movie or wait for your previous orders to be approved.");
                         return;
                     }
                 }
                 if (account == 3)
                 {
-                    if (currentOrders == 3)
+                    if (currentOrders == 3 || requests == 3)
                     {
-                        MessageBox.Show("You can only rent three movies at a time");
+                        MessageBox.Show("You can only rent three movies at a time. Please return a movie or wait for your previous orders to be approved.");
                         return;
                     }
                 }

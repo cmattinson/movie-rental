@@ -98,7 +98,17 @@ namespace MovieRental
                     int id = person.Id;
                     string firstName, lastName;
                     string gender = person.Gender.ToString();
-                    string sex = gender[0].ToString();
+                    string sex;
+
+                    if (gender == "Male" || gender == "Female")
+                    {
+                        sex = gender[0].ToString();
+                    }
+                    else
+                    {
+                        continue;
+                    }
+
 
                     var today = DateTime.Today;
 
@@ -112,9 +122,13 @@ namespace MovieRental
                     {
                         firstName = names[0]; lastName = names[names.Length - 1];
                     }
-                    else
+                    else if (names.Length == 2)
                     {
                         firstName = names[0]; lastName = names[1];
+                    }
+                    else
+                    {
+                        continue; // Skip adding this actor, does not conform to the database
                     }
 
                     using (var context = new MovieRentalEntities())
@@ -150,8 +164,17 @@ namespace MovieRental
                             ActorID = id
                         };
 
-                        context.Credits.Add(credit);
-                        context.SaveChanges();
+                        try
+                        {
+                            context.Credits.Add(credit);
+                            context.SaveChanges();
+                        }
+                        catch
+                        {
+                            continue; // Skip this credit
+                        }
+
+
                     }
                 }
             }

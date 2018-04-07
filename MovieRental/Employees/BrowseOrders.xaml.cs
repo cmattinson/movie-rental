@@ -48,6 +48,11 @@ namespace MovieRental.Employees
         {
             Order current = (Order)OrderList.SelectedItem;
 
+            if (current == null)
+            {
+                return;
+            }
+
             List<string> info = new List<string>();
 
             info.Add("Customer - " + current.Customer.FirstName + " " + current.Customer.LastName);
@@ -77,6 +82,11 @@ namespace MovieRental.Employees
                     context.SaveChanges();
 
                     MessageBox.Show("Order has been approved");
+
+                    // Refresh order list
+                    OrderList.ItemsSource = null;
+                    OrderList.ItemsSource = GetOrders();
+                    OrderInfo.ItemsSource = null;
                 }
             }
         }
