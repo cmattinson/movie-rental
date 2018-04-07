@@ -88,9 +88,10 @@ namespace MovieRental.Customers
 
             using (var context = new MovieRentalEntities())
             {
-                var order = context.Orders.SingleOrDefault(o => o.OrderID == current.OrderID);
+                var order = context.Orders.Include("Movie").SingleOrDefault(o => o.OrderID == current.OrderID);
 
                 order.ActualReturn = DateTime.Today;
+                order.Movie.NumberOfCopies++;
                 context.SaveChanges();
                 MessageBox.Show("Movie has been returned");
             }

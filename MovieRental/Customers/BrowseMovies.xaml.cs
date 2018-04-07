@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRental.Customers;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
@@ -39,11 +40,16 @@ namespace MovieRental
             SearchBy.Items.Add("Actor");
             SearchBy.Items.Add("Genre");
             SearchBy.Items.Add("Title");
+            SearchBy.Items.Add("Most Popular");
 
             using (var context = new MovieRentalEntities())
             {
-                var movies = from m in context.Movies select m;
+                var movies = from m in context.Movies
+                             where m.NumberOfCopies > 0
+                             select m;
+
                 MovieList.DisplayMemberPath = "Title";
+                MovieList.SelectedValuePath = "MovieID";
 
                 MovieList.ItemsSource = movies.ToList();
                 MovieList.SelectedIndex = 0;
@@ -53,6 +59,10 @@ namespace MovieRental
             Genres.SelectedValuePath = "Value";
             Genres.DisplayMemberPath = "Value";
             Genres.SelectedIndex = 0;
+
+            List<string> spans = new List<string>();
+            spans.Add("This week"); spans.Add("This month"); spans.Add("This year");
+            Timespan.ItemsSource = spans;
 
             // Initially search by titles and hide the genre combobox
             SearchBy.SelectedIndex = 2;
@@ -274,7 +284,54 @@ namespace MovieRental
                     }
                     break;
 
+                case "Most Popular":
+                    switch (Timespan.SelectedItem.ToString())
+                    {
+                        case "This week":
+                            movies = GetWeekPopular();
 
+                            if (movies.Count() == 0)
+                            {
+                                MessageBox.Show("No orders have been made this week");
+                            }
+                            else
+                            {
+                                MovieList.DisplayMemberPath = "Title";
+                                MovieList.ItemsSource = movies;
+                                MovieList.SelectedIndex = 0;
+                            }
+                            break;
+                        case "This month":
+                            movies = GetMonthPopular();
+
+                            if (movies.Count() == 0)
+                            {
+                                MessageBox.Show("No orders have been made this month");
+                            }
+                            else
+                            {
+                                MovieList.DisplayMemberPath = "Title";
+                                MovieList.ItemsSource = movies;
+                                MovieList.SelectedIndex = 0;
+                            }
+                            break;
+                        case "This year":
+                            movies = GetYearPopular();
+
+                            if (movies.Count() == 0)
+                            {
+                                MessageBox.Show("No orders have been made this year");
+                            }
+                            else
+                            {
+                                MovieList.DisplayMemberPath = "Title";
+                                MovieList.ItemsSource = movies;
+                                MovieList.SelectedIndex = 0;
+                            }
+                            break;
+                    }
+
+                    break;
             }
         }
 
@@ -327,14 +384,21 @@ namespace MovieRental
 
                     foreach (Actor actor in unique)
                     {
-                        var actorCredits = context.Credits.Where(credit => credit.ActorID == actor.ActorID).ToList();
+                        string fullName = actor.FirstName + " " + actor.LastName;
 
-                        // Add every movie the actor has been in to the result set
-                        foreach(Credit credit in actorCredits)
+                        // Rebuild the full name and check if it is equal to the searched name
+                        if (fullName == name)
                         {
-                            var movie = context.Movies.Where(m => m.MovieID == credit.MovieID).FirstOrDefault();
-                            movies.Add(movie);
+                            var actorCredits = context.Credits.Where(credit => credit.ActorID == actor.ActorID).ToList();
+
+                            // Add every movie the actor has been in to the result set
+                            foreach (Credit credit in actorCredits)
+                            {
+                                var movie = context.Movies.Where(m => m.MovieID == credit.MovieID).FirstOrDefault();
+                                movies.Add(movie);
+                            }
                         }
+
                     }
                 }
             }
@@ -381,16 +445,104 @@ namespace MovieRental
                 case "Title":
                     SearchBox.Visibility = Visibility.Visible;
                     Genres.Visibility = Visibility.Hidden;
+                    Timespan.Visibility = Visibility.Hidden;
                     break;
                 case "Actor":
                     SearchBox.Visibility = Visibility.Visible;
                     Genres.Visibility = Visibility.Hidden;
+                    Timespan.Visibility = Visibility.Hidden;
                     break;
                 case "Genre":
                     Genres.Visibility = Visibility.Visible;
                     SearchBox.Visibility = Visibility.Hidden;
+                    Timespan.Visibility = Visibility.Hidden;
+                    break;
+                case "Most Popular":
+                    Timespan.Visibility = Visibility.Visible;
+                    Genres.Visibility = Visibility.Hidden;
+                    SearchBox.Visibility = Visibility.Hidden;
                     break;
             }
+        }
+
+        private List<Movie> GetWeekPopular()
+        {
+            List<Movie> movies = new List<Movie>();
+
+            // Sunday of this week
+            DayOfWeek firstDay = 0;
+
+            DateTime firstOfWeek = DateTime.Today.Date;
+
+            // Find the date of this week's Sunday
+            while (firstOfWeek.DayOfWeek != firstDay)
+            {
+                firstOfWeek = firstOfWeek.AddDays(-1);
+            }
+
+            DateTime date = firstOfWeek.Date;
+
+            using (var context = new MovieRentalEntities())
+            {
+                var weekMovies = "SELECT MovieID, COUNT(OrderID) as NumberOfOrders FROM dbo.Orders WHERE Orders.RentalDate >= @date GROUP BY MovieID ORDER BY (NumberOfOrders) DESC";
+                var popularThisWeek = context.Database.SqlQuery<StorePopular>(weekMovies, new SqlParameter("@date", date.ToShortDateString()));
+
+                var top10 = popularThisWeek.Take(10); // 10 most popular movies of the week
+
+                foreach (StorePopular popular in top10)
+                {
+                    Movie movie = context.Movies.Where(m => m.MovieID == popular.MovieID).Single();
+                    movies.Add(movie); 
+                }
+            }
+
+            return movies;
+        }
+
+        private List<Movie> GetMonthPopular()
+        {
+            List<Movie> movies = new List<Movie>();
+
+            DateTime firstOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+
+            using (var context = new MovieRentalEntities())
+            {
+                var monthMovies = "SELECT MovieID, COUNT(OrderID) as NumberOfOrders FROM dbo.Orders WHERE Orders.RentalDate >= @date GROUP BY MovieID ORDER BY (NumberOfOrders) DESC";
+                var popularThisMonth = context.Database.SqlQuery<StorePopular>(monthMovies, new SqlParameter("@date", firstOfMonth.ToShortDateString()));
+
+                var top10 = popularThisMonth.Take(10); // 10 most popular movies of the month
+
+                foreach (StorePopular popular in top10)
+                {
+                    Movie movie = context.Movies.Where(m => m.MovieID == popular.MovieID).Single();
+                    movies.Add(movie);
+                }
+            }
+
+            return movies;
+        }
+
+        private List<Movie> GetYearPopular()
+        {
+            List<Movie> movies = new List<Movie>();
+
+            DateTime firstOfYear = new DateTime(DateTime.Now.Year, 1, 1);
+
+            using (var context = new MovieRentalEntities())
+            {
+                var yearMovies = "SELECT MovieID, COUNT(OrderID) as NumberOfOrders FROM dbo.Orders WHERE Orders.RentalDate >= @date GROUP BY MovieID ORDER BY (NumberOfOrders) DESC";
+                var popularThisYear = context.Database.SqlQuery<StorePopular>(yearMovies, new SqlParameter("@date", firstOfYear.ToShortDateString()));
+
+                var top10 = popularThisYear.Take(10); // 10 most popular movies of the year
+
+                foreach (StorePopular popular in top10)
+                {
+                    Movie movie = context.Movies.Where(m => m.MovieID == popular.MovieID).Single();
+                    movies.Add(movie);
+                }
+            }
+
+            return movies;
         }
     }
 }

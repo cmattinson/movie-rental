@@ -82,6 +82,7 @@
     <Compile Include="Customers\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Customers\StorePopular.cs" />
     <Compile Include="Customers\Unlimited1.xaml.cs">
       <DependentUpon>Unlimited1.xaml</DependentUpon>
     </Compile>

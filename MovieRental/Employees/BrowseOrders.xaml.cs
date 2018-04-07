@@ -66,13 +66,14 @@ namespace MovieRental.Employees
 
             using (var context = new MovieRentalEntities())
             {
-                var order = context.Orders.SingleOrDefault(o => o.OrderID == current.OrderID);
+                var order = context.Orders.Include("Movie").SingleOrDefault(o => o.OrderID == current.OrderID);
 
                 if (order != null)
                 {
                     order.SIN = employee.SIN;
                     order.RentalDate = System.DateTime.Today;
                     order.ExpectedReturn = System.DateTime.Today.AddMonths(1);
+                    order.Movie.NumberOfCopies--;
                     context.SaveChanges();
 
                     MessageBox.Show("Order has been approved");
