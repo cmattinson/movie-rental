@@ -571,7 +571,7 @@ namespace MovieRental
 
                 if (MessageBox.Show("Generate recommendations based on " + actor.FullName + "?", "Recommendations", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    MovieList.ItemsSource = GenerateRecommendations(id);
+                    MovieList.ItemsSource = GenerateRecommendationsByActor(id);
                     MovieList.SelectedIndex = 0;
 
                     RecommendationText.Text = "Because you like: " + actor.FullName;
@@ -584,7 +584,7 @@ namespace MovieRental
             }
         }
 
-        public List<Movie> GenerateRecommendations(int id)
+        public List<Movie> GenerateRecommendationsByActor(int id)
         {
             using (var context = new MovieRentalEntities())
             {
@@ -602,6 +602,66 @@ namespace MovieRental
                 return recs;
             }
         }
+
+        //public List<Movie> GeneratePersonalRecommendations()
+        //{
+        //    using (var context = new MovieRentalEntities())
+        //    {
+        //        List<Movie> recs = new List<Movie>();
+
+        //        var query = "SELECT Genre, COUNT(OrderID) as NumberOfOrders FROM Orders, Movie, Customer WHERE Orders.MovieID = Movie.MovieID AND Customer.AccountNumber = @account GROUP BY Genre ORDER BY (NumberOfOrders) DESC";
+        //        var favGenre = context.Database.SqlQuery<StoreGenreCount>(query, new SqlParameter("@account", customer.AccountNumber)).First();
+
+        //        // Customer's favorite genre
+        //        string genre = favGenre.Genre;
+
+        //        var moviesByGenre = context.Movies.Where(m => m.Genre == genre).ToList();
+
+        //        recs.AddRange(moviesByGenre);
+
+        //        var actorQuery = "SELECT ActorID, Count(OrderID) as NumberOfOrders FROM Orders, Credits, Customer WHERE Orders.MovieID = Credits.MovieID AND Customer.AccountNumber = 2 GROUP BY ActorID ORDER BY (NumberOfOrders) DESC";
+        //        var favorites = context.Database.SqlQuery<StoreFavoriteActors>(actorQuery, new SqlParameter("@account", customer.AccountNumber)).ToList();
+
+        //        var top = (StoreFavoriteActors)favorites.Take(1);
+
+        //        List<int> favoriteActors = new List<int>();
+
+        //        // First favorite actor
+        //        favoriteActors.Add(top.ActorID);
+
+        //        // Check for any other actors that have the same number of orders as the first one in the list
+        //        int count = top.NumberOfOrders;
+
+        //        foreach(StoreFavoriteActors result in favorites)
+        //        {
+        //            // Add the actor if order count is equal
+        //            if (result.NumberOfOrders == count)
+        //            {
+        //                favoriteActors.Add(result.ActorID);
+        //            }
+
+        //        }
+
+        //        //foreach (int actorID in favoriteActors)
+        //        //{
+        //        //    var credits = context.Credits.Where(c => c.ActorID == actorID).ToList();
+
+        //        //    foreach (Credit credit in credits)
+        //        //    {
+
+        //        //        recs.AddRange(movies);
+        //        //    }
+
+                    
+        //        //}
+
+
+
+
+
+
+        //    }
+        //}
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {

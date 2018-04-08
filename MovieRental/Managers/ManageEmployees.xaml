@@ -9,7 +9,37 @@
       Title="ManageEmployees">
 
     <Grid>
-        <ListBox x:Name="EmployeeList" HorizontalAlignment="Left" Height="532" VerticalAlignment="Top" Width="416" Margin="32,0,0,0"/>
+        <ListBox x:Name="EmployeeList" HorizontalAlignment="Left" Height="532" VerticalAlignment="Top" Width="416" Margin="32,20,0,0" SelectionChanged="EmployeeList_SelectionChanged"/>
+        <TextBox x:Name="SINBox" HorizontalAlignment="Left" Height="23" Margin="965,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225"/>
+        <TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Height="24" Margin="1010,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="LastNameBox" HorizontalAlignment="Left" Height="24" Margin="1010,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Height="24" Margin="965,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225"/>
+        <TextBox x:Name="CityBox" HorizontalAlignment="Left" Height="24" Margin="1010,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="ProvinceBox" HorizontalAlignment="Left" Height="24" Margin="1010,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="PhoneBox" HorizontalAlignment="Left" Height="24" Margin="1010,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="WageBox" HorizontalAlignment="Left" Height="24" Margin="1070,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="24" Margin="1010,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <ComboBox x:Name="AccountType" HorizontalAlignment="Left" Margin="1070,508,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="SIN" HorizontalAlignment="Left" Margin="864,17,0,0" VerticalAlignment="Top"/>
+        <Label Content="First name" HorizontalAlignment="Left" Margin="864,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last name" HorizontalAlignment="Left" Margin="864,98,0,0" VerticalAlignment="Top"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="864,138,0,0" VerticalAlignment="Top"/>
+        <Label Content="City" HorizontalAlignment="Left" Margin="864,178,0,0" VerticalAlignment="Top"/>
+        <Label Content="Province" HorizontalAlignment="Left" Margin="864,218,0,0" VerticalAlignment="Top"/>
+        <Label Content="Postal Code" HorizontalAlignment="Left" Margin="864,258,0,0" VerticalAlignment="Top"/>
+        <Label Content="Phone" HorizontalAlignment="Left" Margin="864,298,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wage" HorizontalAlignment="Left" Margin="864,338,0,0" VerticalAlignment="Top"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="864,376,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="864,418,0,0" VerticalAlignment="Top"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="1049,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.469,0.538"/>
+        <TextBox x:Name="PostalCodeBox" HorizontalAlignment="Left" Height="24" Margin="1010,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Confirm password" HorizontalAlignment="Left" Margin="864,458,0,0" VerticalAlignment="Top"/>
+        <Label Content="Position" HorizontalAlignment="Left" Margin="864,504,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Add" Content="Add" HorizontalAlignment="Left" Margin="1100,561,0,0" VerticalAlignment="Top" Width="90" Click="Add_Click" Background="#FFC62828" Foreground="White" BorderBrush="{x:Null}" FontFamily="Arial" Height="33"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="864,561,0,0" VerticalAlignment="Top" Width="90" Background="#FF212121" Foreground="White" BorderBrush="{x:Null}" FontFamily="Arial" Height="33" Click="Save_Click"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="1010,420,0,0" VerticalAlignment="Top" Width="180" Height="24"/>
+        <PasswordBox x:Name="ConfirmBox" HorizontalAlignment="Left" Margin="1010,460,0,0" VerticalAlignment="Top" Width="180" Height="24"/>
+        <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" Margin="1210,23,0,0" VerticalAlignment="Top" Width="49" Click="Clear_Click"/>
 
     </Grid>
 </Page>
