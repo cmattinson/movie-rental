@@ -67,10 +67,16 @@ namespace MovieRental
             // Initially search by titles and hide the genre combobox
             SearchBy.SelectedIndex = 2;
             Genres.Visibility = Visibility.Hidden;
+            Timespan.Visibility = Visibility.Hidden;
+
+            ActorList.SelectedIndex = -1;
+
+            RecommendationText.Visibility = Visibility.Hidden;
         }
 
         private void Movies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ActorList.Items.Clear();
             try
             {
                 Movie current = (Movie) MovieList.SelectedItem;
@@ -118,16 +124,14 @@ namespace MovieRental
                 {
                     var query = context.Credits.Where(c => c.MovieID == current.MovieID).ToList();
 
-                    List<string> actors = new List<string>();
-
                     foreach (Credit credit in query)
                     {
-                        var actor = client.GetPersonAsync(credit.ActorID).Result;
+                        var actor = context.Actors.Where(a => a.ActorID == credit.ActorID).Single();
 
-                        actors.Add(actor.Name);
+                        ActorList.Items.Add(actor);
                     }
 
-                    ActorList.ItemsSource = actors;
+                    ActorList.DisplayMemberPath = "FullName";
                 }
             }
             catch (NullReferenceException error)
@@ -550,6 +554,67 @@ namespace MovieRental
             }
 
             return movies;
+        }
+
+        private void Recommended_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ActorList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Actor actor = (Actor)ActorList.SelectedItem;
+
+            if (actor != null)
+            {
+                int id = actor.ActorID;
+
+                if (MessageBox.Show("Generate recommendations based on " + actor.FullName + "?", "Recommendations", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    MovieList.ItemsSource = GenerateRecommendations(id);
+                    MovieList.SelectedIndex = 0;
+
+                    RecommendationText.Text = "Because you like: " + actor.FullName;
+                    RecommendationText.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+
+        public List<Movie> GenerateRecommendations(int id)
+        {
+            using (var context = new MovieRentalEntities())
+            {
+                var credits = context.Credits.Where(c => c.ActorID == id).ToList();
+
+                List<Movie> recs = new List<Movie>();
+
+                foreach (Credit credit in credits)
+                {
+                    var movie = context.Movies.Where(m => m.MovieID == credit.MovieID).Single();
+
+                    recs.Add(movie);
+                }
+
+                return recs;
+            }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            RecommendationText.Visibility = Visibility.Hidden;
+            using (var context = new MovieRentalEntities())
+            {
+                var movies = from m in context.Movies
+                             where m.NumberOfCopies > 0
+                             select m;
+
+                MovieList.ItemsSource = movies.ToList();
+                MovieList.SelectedIndex = 0;
+            }
         }
     }
 }

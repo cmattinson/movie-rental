@@ -72,6 +72,7 @@
     <Compile Include="Actor.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ActorExtensions.cs" />
     <Compile Include="CustomerExtensions.cs" />
     <Compile Include="Customers\BrowseOrders.xaml.cs">
       <DependentUpon>BrowseOrders.xaml</DependentUpon>

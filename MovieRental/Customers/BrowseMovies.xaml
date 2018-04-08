@@ -9,7 +9,7 @@
       Title="BrowseMovies" Foreground="White">
 
     <Grid Background="#FFFAF9FA">
-        <ListBox x:Name="MovieList" HorizontalAlignment="Left" Height="594" VerticalAlignment="Top" Width="279" Margin="1013,75,0,0" SelectionChanged="Movies_SelectionChanged" Background="#FF212121" FontSize="14" Foreground="White" BorderBrush="#FF1E1E1E" FontFamily="Arial"/>
+        <ListBox x:Name="MovieList" HorizontalAlignment="Left" Height="488" VerticalAlignment="Top" Width="281" Margin="1013,137,0,0" SelectionChanged="Movies_SelectionChanged" Background="#FF212121" FontSize="14" Foreground="White" BorderBrush="#FF1E1E1E" FontFamily="Arial"/>
         <Image x:Name="Poster" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="278" Margin="39,11,0,0"/>
         <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Arial" FontSize="36" Foreground="#FF212121" Margin="355,13,0,0"/>
         <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="355,109,0,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Arial" FontSize="24" Foreground="#FF212121"/>
@@ -19,15 +19,9 @@
         <Button x:Name="Rent" Content="Rent" HorizontalAlignment="Left" Margin="39,453,0,0" VerticalAlignment="Top" Width="90" Click="Rent_Click" Background="#FFC62828" Foreground="White" BorderBrush="{x:Null}" FontFamily="Arial" Height="33"/>
         <Ellipse x:Name="RatingCircle" Fill="#FF141414" HorizontalAlignment="Left" Height="71" Margin="474,64,0,0" Stroke="#FFE50914" VerticalAlignment="Top" Width="71" StrokeThickness="5"/>
         <TextBlock x:Name="RatingNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="500,75,0,0" FontSize="36" Foreground="#FFE51D1D" Height="45" Width="18"/>
-        <ListBox x:Name="ActorList" HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="350" Margin="355,466,0,0" Background="#FFFAF9FA" BorderBrush="{x:Null}" Foreground="Black" FontSize="14">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="{x:Type ListBoxItem}">
-                    <Setter Property="Focusable" Value="False"/>
-                </Style>
-            </ListBox.ItemContainerStyle>
-        </ListBox>
+        <ListBox x:Name="ActorList" HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="350" Margin="355,471,0,0" Background="#FFFAF9FA" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" SelectionChanged="ActorList_SelectionChanged"></ListBox>
         <Label Content="Top Cast" HorizontalAlignment="Left" Margin="355,435,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="18" FontWeight="Bold" FontFamily="Arial" RenderTransformOrigin="0.513,0.961"/>
-        <Rectangle Fill="#FF212121" HorizontalAlignment="Left" Height="75" Margin="1013,0,0,0" VerticalAlignment="Top" Width="279"/>
+        <Rectangle Fill="#FF212121" HorizontalAlignment="Left" Height="137" Margin="1013,0,0,0" VerticalAlignment="Top" Width="281"/>
         <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="23" Margin="1121,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="1071,36,0,0" VerticalAlignment="Top" Foreground="#FFFAF9FA"/>
         <Button x:Name="SearchButton" Content="" HorizontalAlignment="Left" Margin="1247,39,0,0" VerticalAlignment="Top" Width="24" Height="24" Click="SearchButton_Click">
@@ -41,5 +35,9 @@
         <Label Content="Search By" HorizontalAlignment="Left" Margin="1059,7,0,0" VerticalAlignment="Top" Foreground="#FFFAF9FA"/>
         <ComboBox x:Name="Genres" HorizontalAlignment="Left" Margin="1121,39,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="Timespan" HorizontalAlignment="Left" Margin="1121,39,0,0" VerticalAlignment="Top" Width="120"/>
+        <Rectangle Fill="#FF212121" HorizontalAlignment="Left" Height="44" Margin="1013,625,0,0" VerticalAlignment="Top" Width="281"/>
+        <Button x:Name="Recommended" Content="Recommended for You" HorizontalAlignment="Left" Margin="1041,628,0,0" VerticalAlignment="Top" Width="230" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Click="Recommended_Click"/>
+        <Button x:Name="ResetButton" Content="Reset" HorizontalAlignment="Left" Margin="1166,76,0,0" VerticalAlignment="Top" Width="75" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Click="ResetButton_Click"/>
+        <TextBlock x:Name="RecommendationText" HorizontalAlignment="Left" Margin="1023,109,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="14"/>
     </Grid>
 </Page>
