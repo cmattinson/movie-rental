@@ -83,13 +83,11 @@ namespace MovieRental
                     }
                     else
                     {
-                        Console.WriteLine("Incorrect password");
                         return false;
                     }
                 }
                 catch (System.NullReferenceException)
                 {
-                    Console.WriteLine("Not a customer");
                     return false;
                 }
             }

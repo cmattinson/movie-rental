@@ -15,5 +15,7 @@ namespace MovieRental
             Unlimited2 = 2,
             Unlimited3 = 3
         }
+
+        public virtual string FullName { get { return FirstName + "  " + LastName; } }
     }
 }
