@@ -87,6 +87,8 @@ namespace MovieRental
 
             Credits credits = client.GetMovieCreditsAsync(current.Id).Result;
 
+            int copies; decimal fee;
+
             foreach (Cast cast in credits.Cast)
             {
 
@@ -189,6 +191,26 @@ namespace MovieRental
                     MessageBox.Show("Movie is already in the database");
                     return;
                 }
+
+                try
+                {
+                    copies = Convert.ToInt32(NumberOfCopies.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Error in number of copies");
+                    return;
+                }
+
+                try
+                {
+                    fee = Convert.ToDecimal(DistFee.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Error in distribution fee");
+                    return;
+                }
                     
 
                 Movie movie = new Movie()
@@ -196,8 +218,8 @@ namespace MovieRental
                     MovieID = current.Id,
                     Title = current.Title,
                     Genre = GenreDict.genreDict[current.GenreIds[0]], // First available genre for the movie
-                    DistributionFee = 20000,
-                    NumberOfCopies = 10,
+                    DistributionFee = fee,
+                    NumberOfCopies = copies,
                     Rating = (int)Math.Round(current.VoteAverage / 2)
                 };
 

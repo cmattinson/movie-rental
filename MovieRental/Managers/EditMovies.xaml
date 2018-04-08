@@ -9,10 +9,17 @@
       Title="EditMovies">
 
     <Grid>
-        <ListBox x:Name="MovieInfo" HorizontalAlignment="Left" Height="568" Margin="623,13,0,0" VerticalAlignment="Top" Width="630"/>
-        <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="1150,606,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="891,606,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FFC62828" BorderBrush="{x:Null}" Foreground="White" Click="DeleteButton_Click"/>
-        <ListBox x:Name="MovieList" HorizontalAlignment="Left" Height="567" Margin="35,13,0,0" VerticalAlignment="Top" Width="359" SelectionChanged="MovieList_SelectionChanged"/>
+        <ListBox x:Name="MovieInfo" HorizontalAlignment="Left" Height="470" Margin="643,119,0,0" VerticalAlignment="Top" Width="630"/>
+        <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="1170,614,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="911,614,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FFC62828" BorderBrush="{x:Null}" Foreground="White" Click="DeleteButton_Click"/>
+        <ListBox x:Name="MovieList" HorizontalAlignment="Left" Height="469" Margin="55,119,0,0" VerticalAlignment="Top" Width="359" SelectionChanged="MovieList_SelectionChanged"/>
+        <ComboBox x:Name="SearchBy" HorizontalAlignment="Left" Margin="294,13,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="SearchBy_DropDownClosed"/>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="23" Margin="294,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Genres" HorizontalAlignment="Left" Margin="294,57,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="Genres_DropDownClosed"/>
+        <ComboBox x:Name="PopularCount" HorizontalAlignment="Left" Margin="294,56,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="PopularCount_DropDownClosed"/>
+        <Label Content="Search By" HorizontalAlignment="Left" Margin="210,9,0,0" VerticalAlignment="Top" Foreground="Black"/>
+        <Button x:Name="ResetButton" Content="Reset" HorizontalAlignment="Left" Margin="311,614,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Click="ResetButton_Click"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="438,58,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click"/>
 
     </Grid>
 </Page>

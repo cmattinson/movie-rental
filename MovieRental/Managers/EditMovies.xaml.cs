@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRental.Customers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -34,11 +35,35 @@ namespace MovieRental.Managers
                 MovieList.ItemsSource = movies.ToList();
 
             }
+
+            SearchBy.Items.Add("Title");
+            SearchBy.Items.Add("Genre");
+            SearchBy.Items.Add("Popular");
+
+            Genres.ItemsSource = GenreDict.genreDict;
+            Genres.SelectedValuePath = "Value";
+            Genres.DisplayMemberPath = "Value";
+            Genres.SelectedIndex = 0;
+
+            PopularCount.Items.Add("Top 5");
+            PopularCount.Items.Add("Top 10");
+            PopularCount.Items.Add("Top 100");
+
+            SearchBox.Visibility = Visibility.Hidden;
+            Genres.Visibility = Visibility.Hidden;
+            PopularCount.Visibility = Visibility.Hidden;
+            SearchButton.Visibility = Visibility.Hidden;
         }
 
         private void MovieList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Movie current = (Movie) MovieList.SelectedItem;
+            
+            if (current == null)
+            {
+                return;
+            }
+
             List<string> info = new List<string>();
 
             using (var context = new MovieRentalEntities())
@@ -155,6 +180,112 @@ namespace MovieRental.Managers
                     }
                     
                 }
+            }
+        }
+
+        private List<Movie> GetPopular(int count)
+        {
+            List<Movie> top = new List<Movie>();
+
+            using (var context = new MovieRentalEntities())
+            {
+                var query = "SELECT MovieID, COUNT(OrderID) as NumberOfOrders FROM dbo.Orders GROUP BY MovieID ORDER BY (NumberOfOrders) DESC";
+                var popular = context.Database.SqlQuery<StorePopular>(query);
+
+                var pop = popular.Take(count); // Requested number of most popular movies
+                
+
+                foreach(StorePopular p in pop)
+                {
+                    var movie = context.Movies.Where(m => m.MovieID == p.MovieID).Single();
+                    top.Add(movie);
+                }
+            }
+
+            return top;
+        }
+
+        private void SearchBy_DropDownClosed(object sender, EventArgs e)
+        {
+            string current = (string)SearchBy.SelectedItem;
+
+            switch (current)
+            {
+                case "Title":
+                    SearchBox.Visibility = Visibility.Visible;
+                    SearchButton.Visibility = Visibility.Visible;
+                    Genres.Visibility = Visibility.Hidden;
+                    PopularCount.Visibility = Visibility.Hidden;
+                    break;
+                case "Genre":
+                    Genres.Visibility = Visibility.Visible;
+                    SearchBox.Visibility = Visibility.Hidden;
+                    PopularCount.Visibility = Visibility.Hidden;
+                    SearchButton.Visibility = Visibility.Hidden;
+                    break;
+                case "Popular":
+                    PopularCount.Visibility = Visibility.Visible;
+                    Genres.Visibility = Visibility.Hidden;
+                    SearchBox.Visibility = Visibility.Hidden;
+                    SearchButton.Visibility = Visibility.Hidden;
+                    break;
+            }
+        }
+
+        private void PopularCount_DropDownClosed(object sender, EventArgs e)
+        {
+            string current = (string)PopularCount.SelectedItem;
+            List<Movie> popular = new List<Movie>();
+
+            switch (current)
+            {
+                case "Top 5":
+                    popular = GetPopular(5);
+                    break;
+                case "Top 10":
+                    popular = GetPopular(10);
+                    break;
+                case "Top 100":
+                    popular = GetPopular(100);
+                    break;
+            }
+
+            MovieList.ItemsSource = popular;
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (var context = new MovieRentalEntities())
+            {
+                var movies = from m in context.Movies
+                             select m;
+
+                MovieList.ItemsSource = movies.ToList();
+                MovieList.SelectedIndex = 0;
+
+            }
+        }
+
+        private void Genres_DropDownClosed(object sender, EventArgs e)
+        {
+            string genre = Genres.SelectedValue.ToString();
+
+            using (var context = new MovieRentalEntities())
+            {
+                var movies = context.Movies.Where(m => m.Genre == genre).ToList();
+
+                MovieList.ItemsSource = movies;
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string search = SearchBox.Text;
+
+            using (var context = new MovieRentalEntities())
+            {
+                var movies = context.Movies.Where(movie => movie.Title.Contains(SearchBox.Text)).ToList();
+                MovieList.ItemsSource = movies;
             }
         }
     }

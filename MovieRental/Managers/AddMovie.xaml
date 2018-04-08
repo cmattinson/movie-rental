@@ -27,7 +27,12 @@
         <WrapPanel HorizontalAlignment="Left" Height="100" Margin="15,11,-444,0" VerticalAlignment="Top" Width="574" Grid.Column="2">
             <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Arial" FontSize="36" Foreground="Black"/>
         </WrapPanel>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="218,453,0,0" VerticalAlignment="Top" Width="103" Click="AddButton_Click" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Height="33"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="218,594,0,0" VerticalAlignment="Top" Width="103" Click="AddButton_Click" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Height="33"/>
+        <TextBox x:Name="DistFee" HorizontalAlignment="Left" Height="23" Margin="201,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NumberOfCopies" HorizontalAlignment="Left" Height="23" Margin="201,514,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Distribution Fee" HorizontalAlignment="Left" Margin="88,460,0,0" VerticalAlignment="Top"/>
+        <Label Content="Number of Copies" HorizontalAlignment="Left" Margin="88,512,0,0" VerticalAlignment="Top"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="185,460,0,0" VerticalAlignment="Top"/>
     </Grid>
 
 </Page>
