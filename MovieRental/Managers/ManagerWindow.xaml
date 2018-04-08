@@ -16,7 +16,6 @@
         <StackPanel x:Name="ButtonStack" HorizontalAlignment="Left" Height="669" VerticalAlignment="Top" Width="200" Background="#FF212121" Margin="0,102,0,0">
             <Button x:Name="AddMovies" Content="Add Movies" Click="AddMovies_Click" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323"/>
             <Button x:Name="ManageEmployees" Content="Manage Employees" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323" Click="ManageEmployees_Click"/>
-            <Button x:Name="SalesReports" Content="Sales Reports" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323" Click="SalesReports_Click"/>
             <Button x:Name="BrowseMovies" Content="Browse Movies" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323" Click="BrowseMovies_Click"/>
             <Button x:Name="Rentals" Content="View Rentals" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323" Click="Rentals_Click"/>
             <Button x:Name="Statistics" Content="Statistics" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323" Click="Statistics_Click"/>

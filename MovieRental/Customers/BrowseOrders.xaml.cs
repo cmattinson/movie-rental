@@ -96,5 +96,24 @@ namespace MovieRental.Customers
                 MessageBox.Show("Movie has been returned");
             }
         }
+
+        private void Rate_Click(object sender, RoutedEventArgs e)
+        {
+            Order selected = (Order)History.SelectedItem;
+
+            if (selected == null)
+            {
+                MessageBox.Show("Please select a movie to rate");
+            }
+            else
+            {
+                using (var context = new MovieRentalEntities())
+                {
+                    var movie = context.Movies.Where(m => m.MovieID == selected.MovieID);
+
+
+                }
+            }
+        }
     }
 }

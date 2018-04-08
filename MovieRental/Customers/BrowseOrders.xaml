@@ -20,6 +20,7 @@
         <Label Content="History" HorizontalAlignment="Left" Margin="692,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.618,0.513" FontSize="36"/>
         <Button x:Name="ReturnButton" Content="Return" HorizontalAlignment="Left" Margin="515,368,0,0" VerticalAlignment="Top" Width="75" Click="ReturnButton_Click"/>
         <ListBox x:Name="History" HorizontalAlignment="Left" Height="541" Margin="692,66,0,0" VerticalAlignment="Top" Width="545"/>
+        <Button x:Name="Rate" Content="Rate" HorizontalAlignment="Left" Margin="1162,624,0,0" VerticalAlignment="Top" Width="75" Click="Rate_Click"/>
 
     </Grid>
 </Page>

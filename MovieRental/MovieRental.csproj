@@ -102,6 +102,7 @@
       <DependentUpon>ManageCustomers.xaml</DependentUpon>
     </Compile>
     <Compile Include="GenreDict.cs" />
+    <Compile Include="Managers\AccountTypeCount.cs" />
     <Compile Include="Managers\AddMovie.xaml.cs">
       <DependentUpon>AddMovie.xaml</DependentUpon>
     </Compile>
@@ -140,9 +141,6 @@
     </Compile>
     <Compile Include="Managers\ManageEmployees.xaml.cs">
       <DependentUpon>ManageEmployees.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Managers\SalesReports.xaml.cs">
-      <DependentUpon>SalesReports.xaml</DependentUpon>
     </Compile>
     <Compile Include="Managers\Statistics.xaml.cs">
       <DependentUpon>Statistics.xaml</DependentUpon>
@@ -249,10 +247,6 @@
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Managers\SalesReports.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Managers\Statistics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
