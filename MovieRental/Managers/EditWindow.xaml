@@ -1,0 +1,22 @@
+﻿<Window x:Class="MovieRental.Managers.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieRental.Managers"
+        mc:Ignorable="d"
+        Title="EditWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock x:Name="Title" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="100,363,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Click="CancelButton_Click"/>
+        <Button x:Name="SaveButton" Content="Save" Margin="289,363,100,0" VerticalAlignment="Top" Height="33" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Click="SaveButton_Click"/>
+        <ComboBox x:Name="Genre" HorizontalAlignment="Left" Margin="272,80,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DistributionFee" HorizontalAlignment="Left" Height="23" Margin="272,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NumberOfCopies" HorizontalAlignment="Left" Height="23" Margin="272,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Genre" HorizontalAlignment="Left" Margin="100,76,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Distribution Fee" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Number of Copies" HorizontalAlignment="Left" Margin="100,220,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="251,147,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

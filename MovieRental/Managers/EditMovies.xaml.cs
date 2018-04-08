@@ -70,7 +70,7 @@ namespace MovieRental.Managers
             {
                 var movie = context.Movies.Where(m => m.MovieID == current.MovieID).Single();
 
-                info.Add("Genre " + movie.Genre.ToString());
+                info.Add("Genre: " + movie.Genre.ToString());
                 info.Add("Distribution Fee: $" + movie.DistributionFee.ToString("0.00"));
                 info.Add("Number of copies: " + movie.NumberOfCopies.ToString());
                 info.Add("Rating: " + movie.Rating.ToString());
@@ -287,6 +287,16 @@ namespace MovieRental.Managers
                 var movies = context.Movies.Where(movie => movie.Title.Contains(SearchBox.Text)).ToList();
                 MovieList.ItemsSource = movies;
             }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Movie selected = (Movie)MovieList.SelectedItem;
+
+            var editWindow = new EditWindow(selected);
+            editWindow.Show();
+
+
         }
     }
 }
