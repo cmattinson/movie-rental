@@ -5,10 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MovieRental.Managers"
       mc:Ignorable="d" 
-      d:DesignHeight="624" d:DesignWidth="1282"
+      d:DesignHeight="669" d:DesignWidth="1294"
       Title="EditMovies">
 
     <Grid>
-        
+        <ListBox x:Name="MovieInfo" HorizontalAlignment="Left" Height="568" Margin="623,13,0,0" VerticalAlignment="Top" Width="630"/>
+        <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="1150,606,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="891,606,0,0" VerticalAlignment="Top" Width="103" Height="33" Background="#FFC62828" BorderBrush="{x:Null}" Foreground="White" Click="DeleteButton_Click"/>
+        <ListBox x:Name="MovieList" HorizontalAlignment="Left" Height="567" Margin="35,13,0,0" VerticalAlignment="Top" Width="359" SelectionChanged="MovieList_SelectionChanged"/>
+
     </Grid>
 </Page>

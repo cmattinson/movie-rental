@@ -6,26 +6,28 @@
       xmlns:local="clr-namespace:MovieRental"
       mc:Ignorable="d" 
       d:DesignHeight="450"
-      Title="AddMovie" Width="1282" Height="624">
+      Title="AddMovie" Width="1294" Height="669">
 
-    <Grid Background="White" Width="1282" Height="624">
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="342" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="MovieSearchBox" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="Search for a movie" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.873,0.987" Margin="712,0,-829,0" Grid.Column="2"/>
-        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="859,2,-931,0" Click="SearchButton_Click" Grid.Column="2"/>
-        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="321" Margin="617,43,-843,0" SelectionChanged="MovieListBox_SelectionChanged" FontFamily="Source Sans Pro Semibold" FontSize="14" Grid.Column="2" Background="#FF141414" BorderBrush="#FF232323" Foreground="White"/>
-        <Image x:Name="MoviePoster" HorizontalAlignment="Left" Height="426" Margin="22,0,0,0" VerticalAlignment="Top" Width="299"/>
-        <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="15,106,-19,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Source Sans Pro Semibold" FontSize="24" Grid.Column="2" Foreground="Black"/>
-        <WrapPanel HorizontalAlignment="Left" Height="398" Margin="15,141,-493,0" VerticalAlignment="Top" Width="574" Grid.Column="2">
+        <Rectangle Grid.Column="2" Fill="#FF212121" HorizontalAlignment="Left" Height="43" Margin="629,0,-773,0" VerticalAlignment="Top" Width="321" Stroke="#FF141414" OpacityMask="#FF212121"/>
+        <Rectangle Grid.Column="2" Fill="#FF212121" HorizontalAlignment="Left" Height="155" Margin="629,514,-772,0" VerticalAlignment="Top" Width="321" Stroke="#FF141414" OpacityMask="#FF212121"/>
+        <TextBox x:Name="MovieSearchBox" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="Search for a movie" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.873,0.987" Margin="724,9,-667,0" Grid.Column="2"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="871,9,-769,0" Click="SearchButton_Click" Grid.Column="2"/>
+        <ListBox x:Name="MovieListBox" HorizontalAlignment="Left" Height="503" VerticalAlignment="Top" Width="321" Margin="629,40,-773,0" SelectionChanged="MovieListBox_SelectionChanged" FontFamily="Source Sans Pro Semibold" FontSize="14" Grid.Column="2" Background="#FF212121" BorderBrush="#FF232323" Foreground="White" OpacityMask="#FF212121"/>
+        <Image x:Name="MoviePoster" HorizontalAlignment="Left" Height="426" Margin="22,11,0,0" VerticalAlignment="Top" Width="299"/>
+        <TextBlock x:Name="OverviewText" HorizontalAlignment="Left" Margin="15,117,0,0" TextWrapping="Wrap" Text="Overview" VerticalAlignment="Top" RenderTransformOrigin="-0.245,-1.312" FontFamily="Source Sans Pro Semibold" FontSize="24" Grid.Column="2" Foreground="Black"/>
+        <WrapPanel HorizontalAlignment="Left" Height="398" Margin="15,159,-426,0" VerticalAlignment="Top" Width="574" Grid.Column="2">
             <TextBlock x:Name="MovieOverview" TextWrapping="Wrap" Text="TextBlock" FontSize="20" Foreground="Black"/>
         </WrapPanel>
-        <WrapPanel HorizontalAlignment="Left" Height="100" Margin="15,1,-495,0" VerticalAlignment="Top" Width="574" Grid.Column="2">
-            <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Source Sans Pro Black" FontSize="36" Foreground="#FFCF0000"/>
+        <WrapPanel HorizontalAlignment="Left" Height="100" Margin="15,11,-444,0" VerticalAlignment="Top" Width="574" Grid.Column="2">
+            <TextBlock x:Name="MovieTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Arial" FontSize="36" Foreground="Black"/>
         </WrapPanel>
-        <Button x:Name="AddButton" Content="Add" Grid.Column="2" HorizontalAlignment="Left" Margin="785,565,-853,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="218,453,0,0" VerticalAlignment="Top" Width="103" Click="AddButton_Click" Background="#FF212121" BorderBrush="{x:Null}" Foreground="White" Height="33"/>
     </Grid>
 
 </Page>
