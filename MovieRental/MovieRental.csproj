@@ -86,6 +86,7 @@
     <Compile Include="Customers\StoreFavoriteActors.cs" />
     <Compile Include="Customers\StoreGenreCount.cs" />
     <Compile Include="Customers\StorePopular.cs" />
+    <Compile Include="Managers\TopCustomer.cs" />
     <Compile Include="Customers\Unlimited1.xaml.cs">
       <DependentUpon>Unlimited1.xaml</DependentUpon>
     </Compile>
@@ -145,6 +146,7 @@
     <Compile Include="Managers\Statistics.xaml.cs">
       <DependentUpon>Statistics.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Managers\TopEmployee.cs" />
     <Compile Include="Movie.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>

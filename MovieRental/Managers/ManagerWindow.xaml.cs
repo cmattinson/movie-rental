@@ -46,11 +46,6 @@ namespace MovieRental
             Frame.NavigationService.Navigate(new ManageEmployees());
         }
 
-        private void SalesReports_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.NavigationService.Navigate(new SalesReports());
-        }
-
         private void BrowseMovies_Click(object sender, RoutedEventArgs e)
         {
             Frame.NavigationService.Navigate(new EditMovies());

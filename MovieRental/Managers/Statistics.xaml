@@ -9,9 +9,12 @@
       Title="Statistics">
 
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="499" Margin="32,95,0,0" VerticalAlignment="Top" Width="1221"/>
+        <ListBox x:Name="Stats" HorizontalAlignment="Left" Height="499" Margin="32,95,0,0" VerticalAlignment="Top" Width="550"/>
         <ComboBox x:Name="Month" HorizontalAlignment="Left" Margin="1133,39,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="Month_DropDownClosed"/>
         <Label Content="Month" HorizontalAlignment="Left" Margin="1075,37,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="TopCustomerList" HorizontalAlignment="Left" Height="499" Margin="703,95,0,0" VerticalAlignment="Top" Width="550"/>
+        <TextBlock x:Name="MonthHeader" HorizontalAlignment="Left" Margin="32,54,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock x:Name="CustomersHeader" HorizontalAlignment="Left" Margin="703,54,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Page>
