@@ -9,12 +9,6 @@
       Title="BrowseQueue">
 
     <Grid>
-        <ListView x:Name="Queue" HorizontalAlignment="Left" Height="570" Margin="78,20,0,0" VerticalAlignment="Top" Width="630" Foreground="#FF212121">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <ListBox x:Name="Queue" HorizontalAlignment="Left" Height="555" Margin="37,46,0,0" VerticalAlignment="Top" Width="1197"/>
     </Grid>
 </Page>

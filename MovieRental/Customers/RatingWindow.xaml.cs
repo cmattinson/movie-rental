@@ -29,6 +29,7 @@ namespace MovieRental.Customers
             InitializeComponent();
 
             this.movie = movie;
+            Title.Text = movie.Title;
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)

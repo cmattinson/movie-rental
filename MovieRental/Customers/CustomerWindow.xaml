@@ -12,7 +12,6 @@
         <StackPanel HorizontalAlignment="Left" Height="360" VerticalAlignment="Top" Width="100" Margin="0,59,0,0"/>
         <StackPanel x:Name="ButtonStack" HorizontalAlignment="Left" Height="669" Margin="0,102,0,0" VerticalAlignment="Top" Width="200" Background="#FF212121">
             <Button x:Name="BrowseMovies" Content="Browse Movies" Height="75" Click="BrowseMovies_Click" Background="#FF212121" Foreground="White" BorderBrush="#FF141414" FontFamily="Source Sans Pro" FontSize="14"/>
-            <Button x:Name="Recommendations" Content="Get Recommendations" Height="75" Click="BrowseMovies_Click" Background="#FF212121" Foreground="White" BorderBrush="#FF141414" FontFamily="Source Sans Pro" FontSize="14"/>
             <Button x:Name="BrowseQueue" Content="Queue" Height="75" Click="BrowseQueue_Click" Background="#FF212121" Foreground="White" BorderBrush="#FF141414" FontFamily="Source Sans Pro" FontSize="14"/>
             <Button x:Name="Orders" Content="Your Orders" Height="75" Background="#FF212121" Foreground="White" BorderBrush="#FF141414" Click="Orders_Click" FontFamily="Source Sans Pro" FontSize="14"/>
             <Button x:Name="Settings" Content="Account Settings" Height="75" Background="#FF212121" Foreground="White" BorderBrush="#FF141414" Click="Settings_Click" FontFamily="Source Sans Pro" FontSize="14"/>

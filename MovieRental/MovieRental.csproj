@@ -167,6 +167,7 @@
     <Compile Include="Queue.cs">
       <DependentUpon>MovieModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="QueueExtensions.cs" />
     <Compile Include="QueueView.cs" />
     <Page Include="Customers\BrowseOrders.xaml">
       <SubType>Designer</SubType>
