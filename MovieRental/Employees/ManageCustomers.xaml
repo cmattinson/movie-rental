@@ -5,11 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MovieRental.Employees"
       mc:Ignorable="d" 
-      d:DesignHeight="664" d:DesignWidth="1292"
-      Title="ManageCustomers">
+      d:DesignHeight="664"
+      Title="ManageCustomers" Width="1284.188">
 
 	<Grid>
-		<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="470*"/>
+			<ColumnDefinition Width="7*"/>
+			<ColumnDefinition Width="21*"/>
+			<ColumnDefinition Width="794*"/>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.ColumnSpan="4">
 			<TabControl>
 				<TabItem>
 					<TabItem.Header>
@@ -47,8 +53,8 @@
 							<TextBlock Text="Phone" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
 							<TextBlock Text="Email" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
 							<TextBlock Text="Account Type" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,15" Height="16" Width="200"/>
-							<TextBlock Text="Credit Card" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
-							<TextBlock Text="Username" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,10" Grid.ColumnSpan="2" Height="16" Width="55"></TextBlock>
+							<TextBlock Text="Credit Card" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,12" Height="19" Width="80"/>
+							<TextBlock Text="Username" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,6,0,19" Height="16" Width="55"/>
 							<TextBlock Text="Password" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="28,48,0,-23" Height="16" Width="55" Grid.ColumnSpan="2"/>
 
 							<TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Height="24" Margin="10,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
@@ -59,12 +65,12 @@
 							<TextBox x:Name="PostalCodeBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="5"/>
 							<TextBox x:Name="PhoneNumberBox" HorizontalAlignment="Left" Height="23" Margin="10,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="6"/>
 							<TextBox x:Name="EmailBox" HorizontalAlignment="Left" Height="22" Margin="10,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="7"/>
-							<TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="10"/>
+							<TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="10"/>
 							<TextBox x:Name="AccountTypeBox" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="8"/>
 							<TextBox x:Name="CreditCardBox" HorizontalAlignment="Left" Height="23" Margin="10,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="9"/>
-							<PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="23" Margin="10,48,0,-30"  VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="10"/>
+							<PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,-23"  VerticalAlignment="Top" Width="223" Grid.Column="2" Grid.Row="10"/>
 
-							<Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="189,140,0,-122" VerticalAlignment="Top" Width="75" Click="SaveButton_Click" Grid.Column="2" Grid.Row="10" RenderTransformOrigin="0.5,0.5" Height="23">
+							<Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="189,140,0,-122" VerticalAlignment="Top" Width="75" Click="AddButton_Click" Grid.Column="2" Grid.Row="10" RenderTransformOrigin="0.5,0.5" Height="23">
 								<Button.RenderTransform>
 									<TransformGroup>
 										<ScaleTransform/>
@@ -74,7 +80,7 @@
 									</TransformGroup>
 								</Button.RenderTransform>
 							</Button>
-							
+
 						</Grid>
 					</TabItem.Content>
 				</TabItem>
@@ -82,10 +88,47 @@
 					<TabItem.Header>
 						<StackPanel Orientation="Horizontal">
 							<TextBlock Text="Edit" Foreground="Black"/>
+
 						</StackPanel>
 					</TabItem.Header>
 					<TabItem.Content>
-						<Grid/>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="6*"/>
+								<ColumnDefinition Width="4*"/>
+								<ColumnDefinition Width="633*"/>
+							</Grid.ColumnDefinitions>
+							<Button x:Name="RemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="458,566,0,0" VerticalAlignment="Top" Width="75" Click="RemoveButton_Click" Grid.Column="2" RenderTransformOrigin="0.5,0.5" Height="23"/>
+							<Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="1107,560,0,0" VerticalAlignment="Top" Width="75" Click="SaveButton_Click" Grid.Column="2" RenderTransformOrigin="0.5,0.5" Height="23"/>
+
+							<TextBlock Text="First name" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="857.565,44,0,576" Height="16" Width="55"/>
+							<TextBlock Text="Last name" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="857.565,89,0,531" Height="16" Width="54"/>
+							<TextBlock Text="Address" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="856.565,209,0,411" Height="16" Width="55"/>
+							<TextBlock Text="City" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="858.565,133,0,487" Height="16" Width="55"/>
+							<TextBlock Text="Province" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="857.565,172,0,448" Height="16" Width="55"/>
+							<TextBlock Text="Postal Code" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="859.565,247,0,373" Height="16" Width="78"/>
+							<TextBlock Text="Phone" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="858.565,287,0,333" Height="16" Width="55"/>
+							<TextBlock Text="Email" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="856.565,328,0,292" Height="16" Width="55"/>
+							<TextBlock Text="Account Type" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="857.565,368,0,252" Height="16" Width="200"/>
+							<TextBlock Text="Credit Card" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="857.565,411,0,207" Height="18" Width="78"/>
+							<TextBlock Text="Username" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="856.565,452,0,161" Height="23" Width="55"/>
+							<TextBlock Text="Password" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="858.565,499,0,121" Height="16" Width="55" Grid.Column="2"/>
+
+							<TextBox x:Name="FirstNameBoxEdit" HorizontalAlignment="Left" Height="24" Margin="958.565,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="LastNameBoxEdit" HorizontalAlignment="Left" Height="23" Margin="958.565,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="AddressBoxEdit" HorizontalAlignment="Left" Height="23" Margin="958.565,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="CityBoxEdit" HorizontalAlignment="Left" Height="24" Margin="958.565,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="ProvinceBoxEdit" HorizontalAlignment="Left" Height="22" Margin="958.565,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="PostalCodeBoxEdit" HorizontalAlignment="Left" Height="23" Margin="958.565,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="PhoneNumberBoxEdit" HorizontalAlignment="Left" Height="23" Margin="958.565,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="EmailBoxEdit" HorizontalAlignment="Left" Height="22" Margin="958.565,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="UsernameBoxEdit" HorizontalAlignment="Left" Height="23" Margin="958.565,452,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="AccountTypeBoxEdit" HorizontalAlignment="Left" Height="24" Margin="958.565,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<TextBox x:Name="CreditCardBoxEdit" HorizontalAlignment="Left" Height="23" Margin="958.565,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+							<PasswordBox x:Name="PasswordBoxEdit" HorizontalAlignment="Left" Height="23" Margin="958.565,499,0,0"  VerticalAlignment="Top" Width="223" Grid.Column="2"/>
+
+							<ListBox x:Name="CustomerList" HorizontalAlignment="Left" Height="589" VerticalAlignment="Top" Width="416" Margin="2,10,0,0" Grid.Column="2" SelectionChanged="CustomerList_SelectionChanged" />
+						</Grid>
 					</TabItem.Content>
 				</TabItem>
 				<Label Height="100" Width="100">

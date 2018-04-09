@@ -21,6 +21,7 @@ namespace MovieRental
     public partial class EmployeeWindow : Window
     {
         Employee employee;
+        Customer customer;
 
         public EmployeeWindow(Employee employee)
         {
@@ -39,7 +40,8 @@ namespace MovieRental
 
         private void Customers_Click(object sender, RoutedEventArgs e)
         {
-            Frame.NavigationService.Navigate(new ManageCustomers());
+            // change??
+            Frame.NavigationService.Navigate(new ManageCustomers(customer));
         }
     }
 }
