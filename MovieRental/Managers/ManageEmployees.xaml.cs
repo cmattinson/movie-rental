@@ -42,39 +42,48 @@ namespace MovieRental.Managers
             {
                 if (PasswordBox.Password == ConfirmBox.Password)
                 {
-                    string position = AccountType.SelectedItem.ToString();
-                    int type;
-
-                    if (position == "Employee")
+                    try
                     {
-                        type = 1;
+
+                        string position = AccountType.SelectedItem.ToString();
+                        int type;
+
+                        if (position == "Employee")
+                        {
+                            type = 1;
+                        }
+                        else
+                        {
+                            type = 0;
+                        }
+                        Employee employee = new Employee()
+                        {
+                            SIN = SINBox.Text,
+                            FirstName = FirstNameBox.Text,
+                            LastName = LastNameBox.Text,
+                            Address = AddressBox.Text,
+                            City = CityBox.Text,
+                            Province = ProvinceBox.Text,
+                            PostalCode = PostalCodeBox.Text,
+                            Phone = PhoneBox.Text,
+                            StartDate = DateTime.Today,
+                            Wage = Convert.ToDecimal(WageBox.Text),
+                            Username = UsernameBox.Text,
+                            Password = PasswordBox.Password,
+                            AccountType = type
+                        };
+
+                        context.Employees.Add(employee);
+                        context.SaveChanges();
+
+                        MessageBox.Show("Employee added");
                     }
-                    else
+                    catch
                     {
-                        type = 0;
+                        MessageBox.Show("Error adding employee");
+                        return;
                     }
 
-                    Employee employee = new Employee()
-                    {
-                        SIN = SINBox.Text,
-                        FirstName = FirstNameBox.Text,
-                        LastName = LastNameBox.Text,
-                        Address = AddressBox.Text,
-                        City = CityBox.Text,
-                        Province = ProvinceBox.Text,
-                        PostalCode = PostalCodeBox.Text,
-                        Phone = PhoneBox.Text,
-                        StartDate = DateTime.Today,
-                        Wage = Convert.ToDecimal(WageBox.Text),
-                        Username = UsernameBox.Text,
-                        Password = PasswordBox.Password,
-                        AccountType = type
-                    };
-
-                    context.Employees.Add(employee);
-                    context.SaveChanges();
-
-                    MessageBox.Show("Employee added");
                 }
 
             }
@@ -204,6 +213,40 @@ namespace MovieRental.Managers
             EmployeeList.SelectedIndex = -1;
 
             Add.Visibility = Visibility.Visible;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Employee selected = (Employee)EmployeeList.SelectedItem;
+
+            if (selected != null)
+            {
+                using (var context = new MovieRentalEntities())
+                {
+
+                    if (MessageBox.Show("Are you sure you want to delete " + selected.FirstName + " " + selected.LastName + "?", "Delete Employee", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    {
+                        // Remove all references to the movie
+                        var employee = context.Employees.Where(emp => emp.SIN == selected.SIN).Single();
+                        context.Employees.Remove(employee);
+
+                        var orders = context.Orders.Where(o => o.SIN == selected.SIN);
+
+                        foreach (Order order in orders)
+                        {
+                            order.SIN = null;
+                        }
+
+                        context.SaveChanges();
+                        MessageBox.Show(selected.FirstName + " " + selected.LastName + " deleted");
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                }
+            }
         }
     }
 }

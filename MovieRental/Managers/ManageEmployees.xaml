@@ -40,6 +40,7 @@
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="1010,420,0,0" VerticalAlignment="Top" Width="180" Height="24"/>
         <PasswordBox x:Name="ConfirmBox" HorizontalAlignment="Left" Margin="1010,460,0,0" VerticalAlignment="Top" Width="180" Height="24"/>
         <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" Margin="1210,23,0,0" VerticalAlignment="Top" Width="49" Click="Clear_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="1100,561,0,0" VerticalAlignment="Top" Width="90" Background="#FFC62828" Foreground="White" BorderBrush="{x:Null}" FontFamily="Arial" Height="33" Click="DeleteButton_Click"/>
 
     </Grid>
 </Page>

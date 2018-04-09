@@ -20,6 +20,6 @@
             <Button x:Name="Rentals" Content="View Rentals" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323" Click="Rentals_Click"/>
             <Button x:Name="Statistics" Content="Statistics" Height="70" Background="#FF212121" Foreground="White" BorderBrush="#FF232323" Click="Statistics_Click"/>
         </StackPanel>
-        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="453.86,41,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click" Grid.Column="1"/>
+        <Button x:Name="Logout" Content="Log Out" HorizontalAlignment="Left" Margin="453.86,41,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click" Grid.Column="1" Background="#FFC62828" BorderBrush="{x:Null}" Foreground="White" FontSize="14"/>
     </Grid>
 </Window>

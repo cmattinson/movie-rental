@@ -14,7 +14,7 @@
             <Button x:Name="Customers" Content="Manage Customers" Height="70" Background="#FF212121" Foreground="#FFFAF9FA" BorderBrush="#FF141414" Click="Customers_Click"/>
         </StackPanel>
         <Frame x:Name="Frame" Content="Frame" HorizontalAlignment="Left" Height="669" VerticalAlignment="Top" Width="1294" Margin="200,102,-2,0" NavigationUIVisibility="Hidden" Background="White"/>
-        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="1395,34,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click"/>
+        <Button x:Name="Logout" Content="Log Out" HorizontalAlignment="Left" Margin="1395,34,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Click" Background="#FFC62828" BorderBrush="{x:Null}" Foreground="White" FontSize="14"/>
 
     </Grid>
 </Window>
