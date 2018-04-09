@@ -33,7 +33,7 @@ namespace MovieRental.Managers
             }
 
             SearchBy.Items.Add("Customer");
-            SearchBy.Items.Add("Movie title");
+            SearchBy.Items.Add("Movie Title");
             SearchBy.Items.Add("Genre");
 
             Genres.ItemsSource = GenreDict.genreDict;
@@ -142,6 +142,23 @@ namespace MovieRental.Managers
 
                 OrderList.ItemsSource = orders;
 
+            }
+        }
+
+        private void OrderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RentalInfo.Items.Clear();
+
+            Order order = (Order)OrderList.SelectedItem;
+
+            using (var context = new MovieRentalEntities())
+            {
+                var movie = context.Movies.Where(m => m.MovieID == order.MovieID).Single();
+
+                RentalInfo.Items.Add("Movie: " + movie.Title);
+                RentalInfo.Items.Add("Customer: " + order.Customer.FullName);
+                RentalInfo.Items.Add("Rental Date: " + order.RentalDate.ToString());
+                RentalInfo.Items.Add("Return Date: " + order.ActualReturn.ToString());
             }
         }
     }

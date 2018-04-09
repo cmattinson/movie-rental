@@ -80,6 +80,9 @@
     <Compile Include="Customers\Limited.xaml.cs">
       <DependentUpon>Limited.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Customers\RatingWindow.xaml.cs">
+      <DependentUpon>RatingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customers\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Customers\Limited.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customers\RatingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

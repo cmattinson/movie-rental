@@ -9,8 +9,8 @@
       Title="BrowseRentals">
 
     <Grid>
-        <ListBox x:Name="MovieInfo" HorizontalAlignment="Left" Height="470" Margin="643,119,0,0" VerticalAlignment="Top" Width="630"/>
-        <ListBox x:Name="OrderList" HorizontalAlignment="Left" Height="469" Margin="55,119,0,0" VerticalAlignment="Top" Width="359"/>
+        <ListBox x:Name="RentalInfo" HorizontalAlignment="Left" Height="470" Margin="643,119,0,0" VerticalAlignment="Top" Width="630"/>
+        <ListBox x:Name="OrderList" HorizontalAlignment="Left" Height="469" Margin="55,119,0,0" VerticalAlignment="Top" Width="359" SelectionChanged="OrderList_SelectionChanged"/>
         <ComboBox x:Name="SearchBy" HorizontalAlignment="Left" Margin="294,13,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="SearchBy_DropDownClosed"/>
         <ComboBox x:Name="Genres" HorizontalAlignment="Left" Margin="294,56,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="Genres_DropDownClosed"/>
         <Label Content="Search By" HorizontalAlignment="Left" Margin="210,9,0,0" VerticalAlignment="Top" Foreground="Black"/>
@@ -18,6 +18,6 @@
         <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="438,58,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click"/>
         <TextBox x:Name="LastName" HorizontalAlignment="Left" Height="23" Margin="294,55,0,0" TextWrapping="Wrap" Text="Last name" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="23" Margin="151,55,0,0" TextWrapping="Wrap" Text="First name" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="23" Margin="151,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Height="23" Margin="151,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
     </Grid>
 </Page>

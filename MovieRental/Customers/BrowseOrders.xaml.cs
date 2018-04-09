@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TMDbLib.Client;
 
 namespace MovieRental.Customers
 {
@@ -21,6 +22,8 @@ namespace MovieRental.Customers
     public partial class BrowseOrders : Page
     {
         Customer customer;
+
+
 
         public BrowseOrders(Customer customer)
         {
@@ -109,10 +112,11 @@ namespace MovieRental.Customers
             {
                 using (var context = new MovieRentalEntities())
                 {
-                    var movie = context.Movies.Where(m => m.MovieID == selected.MovieID);
-
-
+                    var movie = context.Movies.Where(m => m.MovieID == selected.MovieID).Single();
+                    var RatingWindow = new RatingWindow(movie);
+                    RatingWindow.Show();
                 }
+
             }
         }
     }

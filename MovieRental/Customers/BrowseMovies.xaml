@@ -17,8 +17,8 @@
         <TextBlock x:Name="GenreText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" Margin="355,73,0,0" FontSize="20" RenderTransformOrigin="0.424,0.525" Foreground="#FF212121" FontFamily="Arial"/>
         <Button x:Name="Queue" Content="Add to Queue" HorizontalAlignment="Left" Margin="214,453,0,0" VerticalAlignment="Top" Width="103" Click="Queue_Click" Background="#FF212121" Foreground="White" BorderBrush="{x:Null}" FontFamily="Arial" Height="33"/>
         <Button x:Name="Rent" Content="Rent" HorizontalAlignment="Left" Margin="39,453,0,0" VerticalAlignment="Top" Width="90" Click="Rent_Click" Background="#FFC62828" Foreground="White" BorderBrush="{x:Null}" FontFamily="Arial" Height="33"/>
-        <Ellipse x:Name="RatingCircle" Fill="#FF141414" HorizontalAlignment="Left" Height="71" Margin="474,64,0,0" Stroke="#FFE50914" VerticalAlignment="Top" Width="71" StrokeThickness="5"/>
-        <TextBlock x:Name="RatingNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="500,75,0,0" FontSize="36" Foreground="#FFE51D1D" Height="45" Width="18"/>
+        <Ellipse x:Name="RatingCircle" Fill="#FF141414" HorizontalAlignment="Left" Height="71" Margin="572,64,0,0" Stroke="#FFE50914" VerticalAlignment="Top" Width="71" StrokeThickness="5"/>
+        <TextBlock x:Name="RatingNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="598,75,0,0" FontSize="36" Foreground="#FFE51D1D" Height="45" Width="18"/>
         <ListBox x:Name="ActorList" HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="350" Margin="355,471,0,0" Background="#FFFAF9FA" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" SelectionChanged="ActorList_SelectionChanged"></ListBox>
         <Label Content="Top Cast" HorizontalAlignment="Left" Margin="355,435,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="18" FontWeight="Bold" FontFamily="Arial" RenderTransformOrigin="0.513,0.961"/>
         <Rectangle Fill="#FF212121" HorizontalAlignment="Left" Height="137" Margin="1013,0,0,0" VerticalAlignment="Top" Width="281"/>

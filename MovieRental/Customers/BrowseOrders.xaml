@@ -9,7 +9,7 @@
       Title="BrowseOrders">
 
     <Grid>
-        <ListView x:Name="OrderList" HorizontalAlignment="Left" Height="271" Margin="62,66,0,0" VerticalAlignment="Top" Width="528" Foreground="#FF212121" SelectionChanged="OrderList_SelectionChanged">
+        <ListView x:Name="OrderList" HorizontalAlignment="Left" Height="271" Margin="62,66,0,0" VerticalAlignment="Top" Width="528" Foreground="#FF212121">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
